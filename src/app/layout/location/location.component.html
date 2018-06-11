@@ -1,0 +1,124 @@
+<div [hidden]="globals.showform">
+
+  <form ngNativeValidate (ngSubmit)="doSubmitLocate()">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Location ID</span>
+              <input type="text" class="form-control input-sm" id="LOCATION_ID" [(ngModel)]="Locate.LOCATION_ID" maxlength="8" required
+                name="LOCATION ID" [disabled]="globals.editmode">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Barcode</span>
+              <input type="text" class="form-control input-sm" id="BARCODE_LOAD" [(ngModel)]="Locate.BARCODE_LOAD" minlength="13" maxlength="13"
+                required name="BARCODE_LOAD">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Status</span>
+              <select class="form-control input-sm" id="STATUS_AA01" [(ngModel)]="Locate.STATUS" required name="STATUS">
+                <option *ngFor="let A of globals.stat_locate" [value]="A.name">{{A.descri}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Status type</span>
+              <select class="form-control input-sm" id="STATUS_AA02" [(ngModel)]="Locate.STATUS_TYPE" required name="STATUS_TYPE">
+                <option *ngFor="let A of globals.type_locate" [value]="A.name">{{A.descri}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Width (m.m)</span>
+              <input type="text" class="form-control input-sm" id="WIDTH_MM" [(ngModel)]="Locate.WIDTH_MM" minlength="3" maxlength="8"
+                required name="WIDTH_MM">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Depth (m.m)</span>
+              <input type="text" class="form-control input-sm" id="DEPTH_MM" [(ngModel)]="Locate.DEPTH_MM" minlength="3" maxlength="8"
+                required name="DEPTH_MM">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Heigth (m.m)</span>
+              <input type="text" class="form-control input-sm" id="HEIGTH_MM" [(ngModel)]="Locate.HEIGTH_MM" minlength="3" maxlength="8"
+                required name="HEIGTH_MM">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-addon col-5">Weight (g)</span>
+              <input type="text" class="form-control input-sm" id="WEIGHT_G" [(ngModel)]="Locate.WEIGHT_G" minlength="3" maxlength="8"
+                required name="WEIGTH_G">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>&nbsp;
+    <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+  </form>
+</div>
+
+<div [hidden]="globals.showtable" [ngBusy]="busy">
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table  table-striped">
+    <thead>
+      <tr>
+        <th [hidden]="globals.showcolum">Event</th>
+        <th>Location ID</th>
+        <th>Barcode</th>
+        <th>Status</th>
+        <th>Status Type</th>
+        <th>Width (m.m)</th>
+        <th>Depth (m.m)</th>
+        <th>Heigth (m.m)</th>
+        <th>weight (g)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dataLocate of dataLocates;let i = index;">
+        <td [hidden]="globals.showcolum">
+          <button [hidden]="globals.editmode" class="btn btn-sm btn-warning" (click)="Update(i)">Update</button>
+          <button [hidden]="globals.deletemode" class="btn btn-sm btn-danger" (click)="Delete(datadataLocate.LOCATION_ID)">Delete</button>
+        </td>
+        <td>{{dataLocate.LOCATION_ID}}</td>
+        <td>{{dataLocate.BARCODE_LOAD}}</td>
+        <td>{{dataLocate.STATUS_AA01}}</td>
+        <td>{{dataLocate.STATUS_AA02}}</td>
+        <td>{{dataLocate.WIDTH_MM}}</td>
+        <td>{{dataLocate.DEPTH_MM}}</td>
+        <td>{{dataLocate.HEIGTH_MM}}</td>
+        <td>{{dataLocate.WEIGHT_G}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

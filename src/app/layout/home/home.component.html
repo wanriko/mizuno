@@ -1,0 +1,72 @@
+<app-sidebar></app-sidebar>
+<div [@routerTransition]>
+  <section class="home-container">
+
+   <hr>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-6">
+          <!-- [icon]="'fa-map-marker'" -->
+        <app-stat [bgClass]="'info'" [label]="'LOCATION ITEM'" [routerLink]="['/location-item']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa-map-marker'" [label]="'CHECK ITEM IN LOCATION'" [routerLink]="['/chkstock-inlocation']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+      <!-- <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa-barcode'" [label]="'SCAN ITEM'" [routerLink]="['/scanitem']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div> 
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa-check-square-o'" [label]="'wan TEST'" [routerLink]="['/jobacc']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div> 
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa-print'" [label]="'PRINT JOB'" [routerLink]="['/jobprint']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div> -->
+    </div>
+  </div>
+  <!-- <hr />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa-file-text-o'" [label]="" [routerLink]="" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa fa-pencil-square-o'" [label]="" [routerLink]="" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa fa-cubes'" [label]="" [routerLink]="" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa fa-barcode'" [label]="" [routerLink]="" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+    </div>
+  </div>  -->
+
+  <hr />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa fa-tasks'" [label]="'CHECK JOB'" [routerLink]="['/WorkerCheckjob']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-6" >
+        <app-stat [bgClass]="'danger'" [icon]="'fa-print'" [label]="'Print Barcode Goods Import'" [routerLink]="['/goods-import']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [icon]="'fa-product-hunt'" [label]="'Key In Goods Import'" [routerLink]="['/goods-import-keyin']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-3 col-lg-6">
+        <app-stat [bgClass]="'info'" [label]="'RECEIVE BARCODE'" [routerLink]="['/receive-barcode']" [routerLinkActive]="['router-link-active']"></app-stat>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

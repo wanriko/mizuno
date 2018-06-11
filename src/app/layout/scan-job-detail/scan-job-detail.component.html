@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      
+      <div class="page-header"> <br>
+        <h2><b>ตรวจสอบข้อมูล BILL</b></h2>      <hr>
+      </div>
+<!-- ============================ สแกนบาร์โค๊ด ============================ -->
+      <div class="jumbotron">
+        <form ngNativeValidate (ngSubmit)="searchBill()">
+          <div class="row justify-content-md-center">          
+            <div class="col-md-auto">
+              <h3> สแกนบาร์โค๊ด BILL NO </h3>
+            </div>
+          </div>                                                 <br>
+
+          <div class="row justify-content-md-center">
+            <div class="col-md-5">
+              <div class="form-group">
+                <input #Inputbarcode type="text" name="barcode" class="form-control" [(ngModel)]="barcode.BILL_NO">
+              </div>
+            </div>
+          </div>
+        </form>                                                 
+
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <button (click)="CLEAR()" class="btn btn-danger">Clear</button>
+          </div>
+        </div>
+      </div>
+<!-- ============================ สแกนบาร์โค๊ด ============================ -->
+
+<!-- ============================ ข้อมูล ============================ -->
+<div class="card bg-light" [hidden]="hiddenDetail">    <br>
+                <!-- =============== DATA =============== -->
+  <div class="card-header bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="row"> 
+            <b> 
+              <span class="text-left">BILL DATE : </span>
+              <span>&nbsp; {{bill_date}}</span>
+            </b>     
+          </div>                                                 <br> 
+          <div class="row"> 
+            <b> 
+              <span>CUST NAME : </span>
+              <span>&nbsp; {{cust_name}}</span>
+            </b>
+          </div>  
+        </div>
+
+        <div class="col">                                     
+          <div class="row">
+            <b> 
+              <span>BILL N8 : </span>
+              <span>&nbsp; {{bill_n8}}</span>
+            </b>
+          </div>                                                 <br> 
+          <div class="row">
+            <b> 
+              <span class="text-left">STATUS : </span>
+              <span>&nbsp; {{job_status}}</span>
+            </b>
+          </div>    
+        </div>
+
+        <div class="col">          
+          <div class="row">
+            <b>
+              <span>BILL NO : </span>
+              <span> &nbsp; {{bill_no}}</span>
+            </b>
+          </div>                                                 <br> 
+          <div class="row">
+            <b> 
+              <span class="text-left">WORKER ID : </span>
+              <span>&nbsp; {{worker}} {{name_user}}</span>
+            </b>
+          </div>
+        </div>
+       </div>
+    </div>                                                        <br> 
+  </div>                                             
+                <!-- =============== TABLE =============== -->
+  <div class="card bg-white mb-3">               
+    <div class="card-body">
+      <div class="row justify-content-md-center">
+        <div class="col-md-7">
+          <table class="table table-hover table-light table-bordered">
+            <tr class="bg-secondary text-white">
+              <th class="text-center"><b><h5>ITEM ID</h5></b></th>
+              <th class="text-center"><b><h5>ITEM DESCRIPTION</h5></b></th>
+              <th class="text-center"><b><h5>QUANTITY</h5></b></th>
+            </tr> 
+            <tr *ngFor='let detail of detail_Status; trackBy: index;let i= index'>
+              <td class="text-left">{{detail.ITEM_ID}}</td>
+              <td class="text-left">{{detail.ITEM_DESC}}</td>
+              <td class="text-left">{{detail.QTY}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<!-- ============================ ข้อมูล ============================ -->
+  </div>
+</div>
+
+
+<!-- for test 
+
+BILL NO:4723101004123     STATUS:ยังไม่ถูกจัด   
+
+BILL NO:4720101012493     STATUS:อยู่ในระหว่างการจัด
+
+BILL NO:4720101010116     STATUS:จัดสินค้าเสร็จแล้ว
+
+-->

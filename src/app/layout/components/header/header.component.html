@@ -1,0 +1,15 @@
+<nav  *ngIf="globals.editMode" class="navbar navbar-expand-lg navbar-light bg-light mb-3 sticky-top">
+    <button class="btn btn-secondary" (click)="goHome()">
+        <i class="fa fa-fw fa-sign-out"></i>&nbsp;Home
+    </button>&emsp;
+    <button class="btn btn-primary" [hidden]="!globals.disable.add" (click)="globals.ShowForm()">
+      &nbsp;
+      <i class="fa fa-floppy-o"></i>&nbsp; Add&nbsp;
+    </button>&nbsp;
+    <button class="btn btn-primary" [hidden]="!globals.disable.edit" (click)="globals.UpdateTable()">
+      <i class="fa fa-refresh"></i>&nbsp;Update
+    </button>&nbsp;
+    <button class="btn btn-primary" [hidden]="!globals.disable.del" (click)="globals.DeleteTable()">
+      <i class="fa fa-remove"></i>&nbsp;Delete
+    </button>&nbsp;
+</nav>

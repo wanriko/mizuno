@@ -1,0 +1,42 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <div class="list-group">
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('pages')">
+                <span><i class="fa fa-plus"></i>&nbsp; Menu</span>
+            </a> 
+            <a class="list-group-item" [routerLink]="['/DailyJobMonitor']" [routerLinkActive]="['router-link-active']">
+                <span><i class="fa fa-clipboard"></i>&nbsp; ข้อมูลงานประจำวัน</span>
+            </a>
+            <a class="list-group-item" [routerLink]="['/DailyMonitor']" [routerLinkActive]="['router-link-active']">
+                <span><i class="fa fa-list-ol"></i>&nbsp; ข้อมูลงานรายวัน</span>
+            </a>
+            <a class="list-group-item" [routerLink]="['/JobControlHeader']" [routerLinkActive]="['router-link-active']">
+                <span><i class="fa fa-tasks"></i>&nbsp; ข้อมูลงานค้าง/ปัจจุบัน</span>
+            </a>
+            <a class="list-group-item" [routerLink]="['/ScanJobDetail']" [routerLinkActive]="['router-link-active']">
+                <span><i class="fa fa-barcode"></i>&nbsp; ข้อมูลบิล</span>
+            </a>
+            <a class="list-group-item" [routerLink]="['/StatusReport']" [routerLinkActive]="['router-link-active']">
+                <span><i class="fa fa-filter"></i>&nbsp; ข้อมูลงานตามสถานะ</span>
+            </a>
+            <!-- <a class="list-group-item" [routerLink]="['/DeptCustomer']" [routerLinkActive]="['router-link-active']">
+                <span><i class="fa fa-smile-o"></i>&nbsp; ข้อมูลร้านค้า</span>
+            </a>  -->
+            <li class="nested" [class.expand]="showMenu === 'pages'">
+                <ul class="submenu">
+                    <li>
+                        <a href="javascript:void(0)"><span>Submenu</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><span>Submenu</span></a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)"><span>Submenu</span></a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
+    </div>
+</nav>
+

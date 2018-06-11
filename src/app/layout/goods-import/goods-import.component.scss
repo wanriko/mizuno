@@ -1,0 +1,331 @@
+// <div class="container-fluid"[hidden] = "Page1">  
+//   <div class="page-header"> 
+//     <div class="row justify-content-start" style="padding-top: 3px">  &nbsp;  &nbsp;   &nbsp;
+//       <h2><b>สินค้านำเข้า</b></h2>         
+//       &emsp; <h4 style="padding-top: 5px"> ( ตรวจนับจำนวนสินค้า - พิมพ์บาร์โค้ดสินค้า ) </h4>     
+//     </div>        
+//   </div>     <hr> 
+// </div>    
+//   <!-- ======================================================== -->
+//   <div class="container-fluid"> 
+//     <div class="jumbotron" [hidden] = "Page1">
+//       <form ngNativeValidate (ngSubmit)="check_BcodeVender()"> 
+//         <div class="row justify-content-md-center">          
+//           <div class="col-md-auto">
+//             <h3><b> BARCODE VENDER </b></h3>
+//           </div>
+//         </div> 
+  
+//         <div [ngBusy]="busy" class="row justify-content-md-center">
+//           <div class="col-md-4">
+//             <div class="form-group">
+//               <input  type="text" class="form-control form-control-lg"  maxlength="25"
+//                        #input1 name="barcode" [(ngModel)]="barcode.bar_Vender" required>
+//             </div>
+//           </div>
+//         </div> 
+//         <div class="row justify-content-center">
+//           <button type="submit" class="btn btn-primary">
+//             <b> ENTER </b>  
+//           </button>         
+//         </div>
+//       </form> 
+//     </div>
+//   </div>
+//   <br>
+  
+// <!-- ======================================================== -->
+  
+//   <div class="container" [hidden] = "Page2">         <br> <br>
+//     <form ngNativeValidate (ngSubmit)="InputPriced()">       
+//       <div class="row justify-content-center">
+//         <div class="col-3">
+//           <h5> ITEM ID </h5>
+//         </div>
+//         <div class="col-4"> 
+//           <h5> {{show_itemId}} </h5>
+//         </div>
+//       </div>                                    <br>
+//       <div class="row justify-content-center">
+//         <div class="col-3"> 
+//           <h5> BARCODE ตปท </h5>
+//         </div>
+//         <div class="col-4"> 
+//           <h5> {{show_bcodeVender}} </h5>
+//         </div>
+//       </div>                                    <br>                   
+//       <div class="row justify-content-center">
+//         <div class="col-3"> 
+//           <h5> BARCODE 885 ที่แปะ </h5>
+//         </div>
+//         <div class="col-4"> 
+//           <h5> {{show_bcode885}} </h5>
+//         </div>
+//       </div>                                    <br>                  
+//       <div class="row justify-content-center">
+//         <div class="col-3"> 
+//           <h5> DESCRIPTION </h5>
+//         </div>
+//         <div class="col-4"> 
+//           <h5> {{show_itemDesc}} </h5>
+//         </div>
+//       </div>                                    <br>    
+      
+//       <div class="row justify-content-center">
+//         <div class="col-3"> 
+//           <h5> QUANTITY </h5>
+//         </div>
+//         <div class="col-4"> 
+//           <h5> {{show_qty}} </h5>
+//         </div>
+//       </div>                                    <br> 
+    
+//       <div class="row justify-content-center">
+//         <div class="col-3"> 
+//           <h5>PRICE</h5> 
+//         </div> 
+//         <div class="col-4">
+//           <h5> {{show_price}} </h5>
+//         </div>
+//       </div>                                    <br>     
+  
+//       <div class="row justify-content-center">
+//         <div class="col-3"> 
+//           <h5>PRICE(VAT)</h5> 
+//         </div> 
+//         <div class="col-4">
+//           <h5> {{show_priceVat}} </h5>
+//         </div>
+//       </div>                                <br>    <br>       
+//         <button type="button" class="btn btn-warning" (click)="backto1()">
+//           <b> BACK </b>
+//         </button>                      &emsp;   &emsp; 
+//     </form> 
+//   </div> 
+  
+//   <br> <br>
+//  <!-- ======================================================== --> 
+  
+//   <div class="card" [hidden]="Page2">                 <br> <br>
+//     <div class="containers"> 
+//       <form ngNativeValidate> 
+//         <div class="row justify-content-md-center">
+//           <div id="print-section">  
+//   <br>  <br> 
+//             <ngx-barcode [bc-element-type]="'svg'" [bc-format]="EAN13" [bc-width]="'11'" [bc-height]="'350'"
+//               [bc-font-size]="'50'" [bc-text-position]="'button'" [bc-value]="show_bcode885" 
+//               [bc-display-value]="true">
+//             </ngx-barcode>
+//             <div class="row" >
+//               <div class="col-auto mr-auto" style="font-size: 30px">
+//                 <h1> &emsp; ราคา  
+//                      &emsp; &emsp; &emsp; &emsp; 
+//                      {{show_price}} บาท 
+//                 </h1>
+//               </div>        
+//               <div class="col-auto" style="font-size: 25px">
+//                 <h1> &emsp; รวม vat  
+//                      &emsp; &emsp; &emsp; &emsp; &emsp;
+//                      {{show_priceVat}} บาท
+//                 </h1>
+//               </div>
+//             </div>
+//           </div>
+  
+//         </div> 
+//   <br>
+//           <div class="row justify-content-md-center">
+//             <button type="button" class="btn btn-info btn-lg fa fa-print" (click)="print()">
+//             <b>PRINT</b> 
+//             </button>             
+//           </div>
+  
+//         <!-- [bc-width]="'2'" [bc-height]="'50'" [bc-format]="EAN13"  -->
+//       </form>                                            <br> <br>
+//     </div>
+//   </div>
+    
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+// <div class="container-fluid"[hidden] = "Page1">  
+//   <div class="page-header"> 
+//     <div class="row justify-content-start" style="padding-top: 3px">  &nbsp;  &nbsp;   &nbsp;
+//       <h2><b>สินค้านำเข้า</b></h2>         
+//       &emsp; <h4 style="padding-top: 5px"> ( ตรวจนับจำนวนสินค้า - พิมพ์บาร์โค้ดสินค้า ) </h4>     
+//     </div>        
+//   </div>     <hr> 
+// </div>    
+//   <!-- ======================================================== -->
+//   <div class="container-fluid"> 
+//     <div class="jumbotron" [hidden] = "Page1">
+//       <form ngNativeValidate (ngSubmit)="check_BcodeVender()"> 
+//         <div class="row justify-content-md-center">          
+//           <div class="col-md-auto">
+//             <h3><b> BARCODE VENDER </b></h3>
+//           </div>
+//         </div> 
+  
+//         <div [ngBusy]="busy" class="row justify-content-md-center">
+//           <div class="col-md-4">
+//             <div class="form-group">
+//               <input  type="text" class="form-control form-control-lg"  maxlength="25"
+//                        #input1 name="barcode" [(ngModel)]="barcode.bar_Vender" required>
+//             </div>
+//           </div>
+//         </div> 
+//         <div class="row justify-content-center">
+//           <button type="submit" class="btn btn-primary">
+//             <b> ENTER </b>  
+//           </button>         
+//         </div>
+//       </form> 
+//     </div>
+//   </div>
+//   <br>
+  
+// <!-- ======================================================== -->
+  
+//   <div class="container" [hidden] = "Page2">         <br> 
+//     <form ngNativeValidate (ngSubmit)="InputPriced()">   
+
+//         <div class="row">
+//             <div class="col">
+//               <div class="row justify-content-start">
+//                 <div class="col-5">
+//                   <h5> ITEM ID </h5>
+//                 </div>
+//                 <div class="col-6"> 
+//                   <h5> {{show_itemId}} </h5>
+//                 </div>
+//               </div>
+//             </div>
+//             <div class="col">
+
+//             </div>
+//           </div>  
+
+//           <br>
+
+//       <div class="row"> 
+//         <div class="col">
+//           <div class="row justify-content-start">
+//             <div class="col-5"> 
+//               <h5> BARCODE VENDER </h5>
+//             </div>
+//             <div class="col-6"> 
+//               <h5> {{show_bcodeVender}} </h5>
+//             </div>
+//           </div> 
+//         </div>
+//         <div class="col">
+//           <div class="row justify-content-start">
+//             <div class="col-5"> 
+//               <h5> BARCODE 885 </h5>
+//             </div>
+//             <div class="col-6"> 
+//               <h5> {{show_bcode885}} </h5>
+//             </div>
+//           </div> 
+//         </div>
+//       </div>
+//  <br>
+//       <div class="row"> 
+//         <div class="col">
+//             <div class="row justify-content-start">
+//                 <div class="col-5"> 
+//                   <h5> DESCRIPTION </h5>
+//                 </div>
+//                 <div class="col-6"> 
+//                   <h5> {{show_itemDesc}} </h5>
+//                 </div>
+//               </div>  
+//         </div>
+//         <div class="col">
+      
+//             <div class="row justify-content-start">
+//                 <div class="col-5"> 
+//                   <h5> QUANTITY </h5>
+//                 </div>
+//                 <div class="col-6"> 
+//                   <h5> {{show_qty}} </h5>
+//                 </div>
+//               </div>  
+//         </div>
+//       </div>
+//       <br>
+
+//       <div class="row"> 
+//         <div class="col">
+//             <div class="row justify-content-start">
+//                 <div class="col-5"> 
+//                   <h5>PRICE</h5> 
+//                 </div> 
+//                 <div class="col-6">
+//                   <h5> {{show_price}} </h5>
+//                 </div>
+//               </div>      
+//         </div>
+//         <div class="col">
+//             <div class="row justify-content-start">
+//                 <div class="col-5"> 
+//                   <h5>PRICE(VAT)</h5> 
+//                 </div> 
+//                 <div class="col-6">
+//                   <h5> {{show_priceVat}} </h5>
+//                 </div>
+//               </div>  
+//         </div>
+//       </div>
+//       <br>
+//         <button type="button" class="btn btn-warning" (click)="backto1()">
+//           <b> BACK </b>
+//         </button>                      &emsp;   &emsp; 
+//     </form> 
+//   </div> 
+  
+//   <br> <br>
+//  <!-- ======================================================== --> 
+  
+//   <div class="card" [hidden]="Page2">                 <br> <br>
+//     <div class="containers"> 
+//       <form ngNativeValidate> 
+//         <div class="row justify-content-md-center">
+//           <div id="print-section">  
+//   <br>  <br> 
+//             <ngx-barcode [bc-element-type]="'svg'" [bc-format]="EAN13" [bc-width]="'11'" [bc-height]="'350'"
+//               [bc-font-size]="'50'" [bc-text-position]="'button'" [bc-value]="show_bcode885" 
+//               [bc-display-value]="true">
+//             </ngx-barcode>
+//             <div class="row" >
+//               <div class="col-auto mr-auto" style="font-size: 30px">
+//                 <h1> &emsp; ราคา  
+//                      &emsp; &emsp; &emsp; &emsp; 
+//                      {{show_price}} บาท 
+//                 </h1>
+//               </div>        
+//               <div class="col-auto" style="font-size: 25px">
+//                 <h1> &emsp; รวม vat  
+//                      &emsp; &emsp; &emsp; &emsp; &emsp;
+//                      {{show_priceVat}} บาท
+//                 </h1>
+//               </div>
+//             </div>
+//           </div>
+  
+//         </div> 
+//   <br>
+//           <div class="row justify-content-md-center">
+//             <button type="button" class="btn btn-info btn-lg fa fa-print" (click)="print()">
+//             <b>PRINT</b> 
+//             </button>             
+//           </div>
+  
+//         <!-- [bc-width]="'2'" [bc-height]="'50'" [bc-format]="EAN13"  -->
+//       </form>                                            <br> <br>
+//     </div>
+//   </div>
+    
+  

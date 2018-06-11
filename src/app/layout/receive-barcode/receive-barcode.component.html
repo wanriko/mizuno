@@ -1,0 +1,57 @@
+<!-- ============================ สแกนบาร์โค๊ด ============================ -->
+<div class="jumbotron"> 
+  <!-- ======== สแกน JOB NOMBER ======== -->
+  <form ngNativeValidate>     SECM52011NWH  ----------  UCEGAH41P04AWHF
+<!-- 
+<h5 class="text-center"> {{dataBar.ITEM_ID}} </h5>
+<h5 class="text-center"> {{dataBar.BCODE_885_ITM}} </h5>
+<h5 class="text-center"> {{dataBar.ITEM_DESC}} </h5> -->
+<br>   
+  <div class="row justify-content-md-center">          
+    <div class="col-md-auto" style="color:darkorange">
+      <h3> SCAN BARCODE ITEM </h3>                                                                                                                                                                                                                                                                                         
+    </div>
+  </div>    
+
+<br>
+
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input #Inputbarcode type="text" name="barcode"  [(ngModel)]="barcode.Item"
+                class="form-control" required minlength="8"  maxlength="15">
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-md-center">
+    <button type="button" class="btn btn-success" (click)="ScanBar_Item()">Enter</button>      &nbsp;  &nbsp; &nbsp; &nbsp;
+    <button type="button" class="btn btn-danger" (click)="CLEAR()">Clear</button>
+  </div>
+  </form>   
+</div>   
+ 
+<!-- style=" padding: 70px 0;text-align: center;"   [bc-element-type]="'svg'"  -->
+<div class="row justify-content-md-center">
+  <div id="print-section">
+
+        <ngx-barcode [bc-element-type]="'svg'" [bc-format]="EAN13" [bc-font-size]="'14'" 
+          [bc-text-position]="'button'" [bc-value]="dataBar.BCODE_885_ITM" 
+          [bc-display-value]="true">
+        </ngx-barcode>
+
+
+
+
+  </div>
+</div>  
+<!-- [bc-width]="'2'" [bc-height]="'50'" [bc-format]="EAN13"  -->
+
+<br>
+
+<div class="row justify-content-md-center">
+  <button type="button" class="btn btn-info fa fa-print" (click)="print()"> Print 1</button>
+</div>
+
+
+

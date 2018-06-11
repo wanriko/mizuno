@@ -1,0 +1,327 @@
+<div class="container-fluid"> <br>
+  <div class="row">   
+    <div class="col">  
+    <!-- ''''''''''''''''''''''''''''' ตารางข้อมูลงานค้างงงง '''''''''''''''''''''''''''''-->
+    <div class="card mb-3"> 
+      <div class="card border-warning" style=" border: 2px solid">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-auto mr-auto" style="font-size:21px; color: rgb(58, 48, 4); " > 
+              <b> &nbsp; ข้อมูลงานค้าง </b>
+            </div>
+    
+            <!-- <div class="col-auto">                
+              <button type="button" class="btn btn-outline-warning btn-rounded waves-effect"
+                    > hahaha
+              </button>
+            </div> -->
+    
+          </div>
+        </div>
+        <!-- <div class="card-body">   -->
+          <table class="table table-bordered table-light">   
+            <thead style="font-size: 17px;">
+              <tr class="table-warning">
+                <th class="text-center" colspan="2"> JOB </th>
+                <th class="text-center"> AMOUNT </th>
+                <th class="text-center"> COMPLETE </th>
+                <th class="text-center"> COMPLETE &nbsp; % </th>
+              </tr>
+            </thead>
+          
+            <tbody> 
+              <tr>     
+                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> PER ORDER</th>       
+                <th class="text-center"> BILL  </th>
+                <th class="text-right"> {{dataJob.All_BillPer}} </th>
+                <th class="text-right"> {{dataJob.Complete_BillPer}} </th>
+                <th class="text-right"> {{dataJob.BillPer_a}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.All_ItemPer}} </th>
+                <th class="text-right"> {{dataJob.Complete_ItemPer}} </th>
+                <th class="text-right"> {{dataJob.ItemPer_a}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.All_QtyPer}} </th>
+                <th class="text-right"> {{dataJob.Complete_QtyPer}} </th>
+                <th class="text-right"> {{dataJob.QtyPer_a}}  %</th>
+              </tr>
+  
+              <tr>     
+                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> CASHSALE</th>       
+                <th class="text-center"> BILL  </th>
+                <th class="text-right"> {{dataJob.All_BillCash}} </th>
+                <th class="text-right"> {{dataJob.Complete_BillCash}} </th>
+                <th class="text-right"> {{dataJob.BillCash_a}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.All_ItemCash}} </th>
+                <th class="text-right"> {{dataJob.Complete_ItemCash}} </th>
+                <th class="text-right"> {{dataJob.ItemCash_a }} %</th>
+              </tr>
+              <tr>
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.All_QtyCash}} </th>
+                <th class="text-right"> {{dataJob.Complete_QtyCash}} </th>
+                <th class="text-right"> {{dataJob.QtyCash_a}} %</th>
+              </tr>
+  
+              <tr>     
+                <th class="text-center" rowspan="2" style="font-size: 17px;"> <br> SORTER</th>       
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.All_ItemSort}} </th>
+                <th class="text-right"> {{dataJob.Complete_ItemSort}} </th>
+                <th class="text-right"> {{dataJob.ItemSort_a}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.All_QtySort}} </th>
+                <th class="text-right"> {{dataJob.Complete_QtySort}} </th>
+                <th class="text-right"> {{dataJob.QtySort_a}} %</th>
+              </tr>
+  
+              <tr>     
+                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> WAVE CONSOLIDATE</th>       
+                <th class="text-center"> BILL  </th>
+                <th class="text-right"> {{dataJob.All_BillConsol}} </th>
+                <th class="text-right"> {{dataJob.Complete_BillConsol}} </th>
+                <th class="text-right"> {{dataJob.BillConsol_a}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.All_ItemConsol}} </th>
+                <th class="text-right"> {{dataJob.Complete_ItemConsol}} </th>
+                <th class="text-right"> {{dataJob.ItemConsol_a}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.All_QtyConsol}} </th>
+                <th class="text-right"> {{dataJob.Complete_QtyConsol}} </th>
+                <th class="text-right"> {{dataJob.QtyConsol_a}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2" style="color: rgb(145, 119, 5); "> TOTAL BILL : </th>
+                <th class="text-right"> {{dataJob.TotalBILL_notToday}} </th>
+                <th class="text-right"> {{dataJob.TTotalBILL_notToday}} </th>
+                <th class="text-right"> {{dataJob.BILL_notToday}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2" style="color: rgb(145, 119, 5); "> TOTAL SKU : </th>
+                <th class="text-right"> {{dataJob.TotalSKU_notToday}} </th>
+                <th class="text-right"> {{dataJob.TTotalSKU_notToday}} </th>
+                <th class="text-right"> {{dataJob.SKU_notToday}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2" style="color: rgb(145, 119, 5); "> TOTAL QUANTITY : </th>
+                <th class="text-right"> {{dataJob.TotalQTY_notToday}} </th>
+                <th class="text-right"> {{dataJob.TTotalQTY_notToday}} </th>
+                <th class="text-right"> {{dataJob.QTY_notToday}} %</th>
+              </tr>
+            </tbody>
+          </table>
+        <!-- </div>  -->
+      </div> 
+    </div>
+    <!-- ''''''''''''''''''''''''''''' จบตารางข้อมูลงานค้างงงง ''''''''''''''''''''''''''''' -->
+    
+  </div>
+  <div class="col">  
+    <!-- ''''''''''''''''''    ตารางข้อมูลงานปัจจุบัน     '''''''''''''''''''''''''''' -->
+    <div class="card mb-3"> 
+      <div class="card border-success" style=" border: 2px solid">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-auto mr-auto" style="font-size:21px; color: rgb(16, 102, 42);">
+              <b> &nbsp; ข้อมูลปัจจุบัน ณ วันที่ {{Datenow}} </b>
+            </div>
+
+            <!-- <div class="col-auto">                
+              <button type="button" class="btn btn-outline-success btn-rounded waves-effect"
+                     > hahaha
+              </button>
+            </div> -->
+
+          </div>
+        </div>
+    
+        <!-- <div class="card-body">   -->
+          <table class="table table-bordered table-light">   
+            <thead style="font-size: 17px;">
+              <tr class="table-success">
+                <th class="text-center" colspan="2"> JOB </th>
+                <th class="text-center"> AMOUNT </th>
+                <th class="text-center"> COMPLETE </th>
+                <th class="text-center"> COMPLETE &nbsp; % </th>
+              </tr>
+            </thead>
+          
+            <tbody> 
+              <tr>     
+                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> PER ORDER</th>       
+                <th class="text-center"> BILL  </th>
+                <th class="text-right"> {{dataJob.AAll_BillPer}} </th>
+                <th class="text-right"> {{dataJob.CComplete_BillPer}} </th>
+                <th class="text-right"> {{dataJob.BillPer_b}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.AAll_ItemPer}} </th>
+                <th class="text-right"> {{dataJob.CComplete_ItemPer}} </th>
+                <th class="text-right"> {{dataJob.ItemPer_b}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.AAll_QtyPer}} </th>
+                <th class="text-right"> {{dataJob.CComplete_QtyPer}} </th>
+                <th class="text-right"> {{dataJob.QtyPer_b}} %</th>
+              </tr>
+
+              <tr>     
+                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> CASHSALE</th>       
+                <th class="text-center"> BILL  </th>
+                <th class="text-right"> {{dataJob.AAll_BillCash}} </th>
+                <th class="text-right"> {{dataJob.CComplete_BillCash}} </th>
+                <th class="text-right"> {{dataJob.BillCash_b}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.AAll_ItemCash}} </th>
+                <th class="text-right"> {{dataJob.CComplete_ItemCash}} </th>
+                <th class="text-right"> {{dataJob.ItemCash_b}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.AAll_QtyCash}} </th>
+                <th class="text-right"> {{dataJob.CComplete_QtyCash}} </th>
+                <th class="text-right"> {{dataJob.QtyCash_b}} %</th>
+              </tr>
+
+              <tr>     
+                <th class="text-center" rowspan="2" style="font-size: 17px;"> <br> SORTER</th>       
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.AAll_ItemSort}}  </th>
+                <th class="text-right"> {{dataJob.CComplete_ItemSort}} </th>
+                <th class="text-right"> {{dataJob.ItemSort_b}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.AAll_QtySort}} </th>
+                <th class="text-right"> {{dataJob.CComplete_QtySort}} </th>
+                <th class="text-right"> {{dataJob.QtySort_b}} %</th>
+              </tr>
+
+              <tr>     
+                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> WAVE CONSOLIDATE</th>       
+                <th class="text-center"> BILL  </th>
+                <th class="text-right"> {{dataJob.AAll_BillConsol}}  </th>
+                <th class="text-right"> {{dataJob.CComplete_BillConsol}} </th>
+                <th class="text-right"> {{dataJob.BillConsol_b}} %</th>
+              </tr>
+              <tr>               
+                <th class="text-center"> SKU </th>
+                <th class="text-right"> {{dataJob.AAll_ItemConsol}} </th>
+                <th class="text-right"> {{dataJob.CComplete_ItemConsol}} </th>
+                <th class="text-right"> {{dataJob.ItemConsol_b}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center"> QUANTITY </th>
+                <th class="text-right"> {{dataJob.AAll_QtyConsol}} </th>
+                <th class="text-right"> {{dataJob.CComplete_QtyConsol}} </th>
+                <th class="text-right"> {{dataJob.QtyConsol_b}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2" style="color: rgb(12, 145, 52);"> TOTAL BILL : </th>
+                <th class="text-right"> {{dataJob.TotalBILL_Today}} </th>
+                <th class="text-right"> {{dataJob.TTotalBILL_Today}} </th>
+                <th class="text-right"> {{dataJob.BILL_Today}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2" style="color: rgb(12, 145, 52);"> TOTAL SKU : </th>
+                <th class="text-right"> {{dataJob.TotalSKU_Today}} </th>
+                <th class="text-right"> {{dataJob.TTotalSKU_Today}} </th>
+                <th class="text-right"> {{dataJob.SKU_Today}} %</th>
+              </tr>
+              <tr>
+                <th class="text-center" colspan="2" style="color: rgb(12, 145, 52);"> TOTAL QUANTITY : </th>
+                <th class="text-right"> {{dataJob.TotalQTY_Today}} </th>
+                <th class="text-right"> {{dataJob.TTotalQTY_Today}} </th>
+                <th class="text-right"> {{dataJob.QTY_Today}} %</th>
+              </tr>
+            </tbody>
+          </table>
+        <!-- </div>  -->
+      </div>
+    </div>
+    <!-- ''''''''''''''''''''''''''''' จบตารางข้อมูลงานปัจจุบัน ''''''''''''''''''''''''''''' -->
+  </div>
+
+    <div class="col">  
+      <!-- ''''''''''''''''''    ตารางข้อมูลงาน Online     '''''''''''''''''''''''''''' -->
+      <div class="card mb-3"> 
+        <div class="card border-info" style=" border: 2px solid">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-auto mr-auto" style="font-size:21px; color: rgb(16, 102, 42);">
+                <b> &nbsp; ตารางข้อมูลงาน Online  </b>
+              </div>
+            </div>
+          </div>
+      
+          <!-- <div class="card-body">   -->
+            <table class="table table-bordered table-light">   
+              <thead style="font-size: 17px;">
+                <tr class="table-info">
+                  <th class="text-center" colspan="2"> JOB </th>
+                  <th class="text-center"> AMOUNT </th>
+                  <th class="text-center"> COMPLETE </th>
+                  <th class="text-center"> COMPLETE &nbsp; % </th>
+                </tr>
+              </thead>
+
+              <tbody> 
+                <tr>     
+                  <th class="text-center" rowspan="2" style="font-size: 17px;"> <br><br>LAZADA</th>       
+                  <th class="text-center"> BILL </th>
+                  <th class="text-right"> {{dataJob.PO_AllnotToday}} </th>
+                  <th class="text-right"> {{dataJob.PO_FinnotToday}} </th>
+                  <th class="text-right"> {{dataJob.PO_LAZADA}} %</th>
+                </tr>
+                <tr>               
+                  <th class="text-center"> SKU </th>
+                  <th class="text-right"> {{dataJob.ITEM_AllnotToday}} </th>
+                  <th class="text-right"> {{dataJob.ITEM_FinnotToday}} </th>
+                  <th class="text-right"> {{dataJob.ItemLAZADA}} %</th>
+                </tr>
+
+                <tr>     
+                  <th class="text-center" rowspan="2" style="font-size: 17px;"> <br><br> LAZADA  {{Datenow}}</th>       
+                  <th class="text-center"> BILL  </th>
+                  <th class="text-right"> {{dataJob.PO_AllToday}} </th>
+                  <th class="text-right"> {{dataJob.PO_FinToday}} </th>
+                  <th class="text-right"> {{dataJob.PO_LAZADA_Today}} %</th>
+                </tr>
+                <tr>               
+                  <th class="text-center"> SKU </th>
+                  <th class="text-right"> {{dataJob.ITEM_AllToday}} </th>
+                  <th class="text-right"> {{dataJob.ITEM_FinToday}} </th>
+                  <th class="text-right"> {{dataJob.ItemLAZADA_Today}} %</th>
+                </tr>
+
+              </tbody>
+            </table>
+          <!-- </div>  -->
+        </div>
+      </div>
+      <!-- ''''''''''''''''''''''''''''' จบตารางข้อมูลงาน Online ''''''''''''''''''''''''''''' -->
+    </div>
+
+    
+  </div>
+</div>      <br><br><br><br>  
+  
+
+  

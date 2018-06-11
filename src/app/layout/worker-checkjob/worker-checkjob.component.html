@@ -1,0 +1,119 @@
+<div class="container-fluid">  
+  <div class="page-header"> 
+    <div class="row justify-content-start">  &nbsp;  &nbsp;   &nbsp;
+      <h2><b>CHECK BULK JOB</b></h2> 
+    </div>
+      <p class="category">&nbsp; ตรวจสอบ BULK JOB</p>                
+    </div>   
+</div>    
+<hr> 
+
+<!-- ======== สแกน JOB NOMBER ======== -->
+  <div class="jumbotron"> 
+    <form ngNativeValidate (ngSubmit)="Check_BillWave()" [hidden] = "hiddenScanJOB_NO">    
+      <br>   
+      <div class="row justify-content-md-center">          
+        <div class="col-md-auto">
+          <h3> สแกนบาร์โค๊ด JOB NUMBER </h3>
+        </div>
+      </div>                                                 <br>
+
+      <div [ngBusy]="busy" class="row justify-content-md-center">
+        <div class="col-md-5">
+          <div class="form-group">
+            <input #InputbarcodeJob type="text" name="barcodeJob" 
+                    class="form-control" required minlength="8"  maxlength="15"
+                    [(ngModel)]="barcode.WAVE">
+          </div>
+        </div>
+      </div>
+<br>  <br>  
+      <div class="row justify-content-start">
+        <button type="button" class="btn btn-danger" (click)="goHome()">Close</button>
+      </div>
+    </form>         
+    <!--  ======== สแกน BCODE_885_ITM  ======== -->
+    <form ngNativeValidate (ngSubmit)="Check_Bill_Item()" [hidden] ="hiddenScanITEM_ID">
+      <div class="row justify-content-md-center">          
+        <div class="col-md-auto">
+          <!-- <h2>WAVE ID : {{this.barcode.WAVE}}</h2><br> -->
+          <h3> สแกนบาร์โค๊ด ITEM ID</h3>
+        </div>
+      </div>                                                 <br>
+
+      <div [ngBusy]="busy" class="row justify-content-md-center">
+        <div class="col-md-5">
+          <div class="form-group">
+            <input #InputbarcodeItem type="text" name="barcodeItem" 
+                    class="form-control" required  minlength="13"  maxlength="15"
+                    [(ngModel)]="barcode.BCODE">
+          </div>
+        </div>
+      </div>
+      <br>  <br>  
+      <div class="row justify-content-start">
+        <button type="button" class="btn btn-warning" (click)="goScanWave()">Back</button>
+      </div>
+      <br>  <br>  
+      <hr>  <br> 
+      <div class="row justify-content-md-center">          
+        <div class="col align-self-center">
+          <h4 class="text-center"> จำนวน SKU ทั้งหมด </h4>                   <br>
+          <h5 class="text-center"> {{show.countItem}} </h5>
+        </div>
+        <div class="col align-self-center">
+          <h4 class="text-center"> จำนวน SKU ที่ตรวจสอบไปแล้ว </h4>                      <br>
+          <h5 class="text-center"> {{show.countItemCheck}} </h5>
+        </div>
+      </div>
+    </form>  
+<!-- ============================ สแกนบาร์โค๊ด ============================ -->
+
+<!-- ========================IIIII แสดงข้อมูล IIIII======================== -->
+<form ngNativeValidate (ngSubmit)="Update_QtyEnd()"  [hidden] ="hiddenShowData"> 
+  <div class="container-fluid"> 
+    <div class="row justify-content-md-center">          
+      <div class="col align-self-center">
+        <h4 class="text-center"> JOB NOMBER </h4>                   <br>
+        <h5 class="text-center"> {{input.WAVE}} </h5>
+      </div>
+      <div class="col align-self-center">
+        <h4 class="text-center"> ITEM ID </h4>                      <br>
+        <h5 class="text-center"> {{input.ITEM_ID}} </h5>
+      </div>
+      <div class="col align-self-center">
+        <h4 class="text-center"> QTY </h4>                          <br>
+        <h5 class="text-center"> {{input.QTY}} </h5>
+      </div>
+      <div [ngBusy]="busy" class="col align-self-center">
+        <h4 class="text-center"> QTY CHECK </h4>                    <br>
+        <h5 class="text-center">
+          <input #QTYcheck type="text" name="QTY_C" [(ngModel)]="barcode.QTY_CHK" 
+                  class="text-center"  minlength="1"  maxlength="5" required> 
+        </h5>
+      </div>
+    </div>   
+  </div>                                              <br>
+</form> 
+<!-- ========================IIIII แสดงข้อมูล IIIII======================== -->
+
+</div>
+
+
+<!-- 
+ <div class="text-center">
+  <h5> For test 
+    <br>  <br> 
+    4720101009318
+    <br>  <br> ==================== <br>  <br>
+     8852505872901        
+     <br>   <br>  <br>
+     8850041925983        
+     <br>  <br>  <br>
+     8858153904285        
+     <br>
+  </h5>
+  </div> -->
+
+
+  

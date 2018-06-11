@@ -1,0 +1,98 @@
+
+
+<!-- <div class="jumbotron"> 
+
+      <div class="row justify-content-md-center">  
+        <div class="col-md-auto">
+          <h2> Dept Product </h2>
+        </div>
+      </div>
+              <br> 
+      <div class="row justify-content-md-center">
+        <div class="col-md-center"  *ngFor='let data of DeptProduct; trackBy: index;let i= index'>
+          <button type="button" class="btn btn-outline-primary waves-effect">
+                  {{data.DEPT_PROD}}
+          </button>     
+        </div>
+      </div>
+  <br><br><br><br><br><br>
+
+  </div> 
+  
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jumbotron"> 
+
+<div class="row justify-content-md-center">  
+    <div class="col-md-auto">
+      <h3> Dept Product </h3>
+    </div>
+  </div>
+          <br>      
+  <div class="row justify-content-md-center">
+    <div class="col-md-5">
+      <div class="form-group">
+        <select class="form-control" *ngFor='let data of DeptProduct; trackBy: index;let i= index'>
+            <option value="one">{{data.DEPT_PROD}}</option>
+        </select> <br><br><br><br><br>
+      </div>
+    </div>
+  </div>  
+</div>     
+
+<br><br><br><br><br><br><br>
+<!-- 
+<div class="jumbotron"> 
+    <div class="row justify-content-md-center">  
+      <div class="col-md-auto">
+        <h2> Dept Product </h2>
+      </div>
+    </div>
+            <br> 
+    <div class="row justify-content-md-center">
+      <div class="col-md-center">
+        <div class="form-group">
+          <input  ng2-auto-complete 
+              value-formatter="myValueFormatter"
+              style = " 
+                display: block;                   width: 30rem;
+                padding: 0.375rem 0.75rem;        font-size: 1rem;
+                line-height: 1.5;                 color: #495057;
+                background-clip: padding-box;     border: 1px solid #ced4da;
+                border-radius: 0.2rem;  "
+
+              [source]="arrayOfStrings"           class="form-control" 
+              placeholder="enter text"            no-match-found-text="ไม่พบข้อมูล"
+              [(ngModel)]="DeptPro"               name="DeptPro"  
+              (valueChanged)="valueChanged($event)" 
+              autocomplete="off"                  > 
+        </div>
+      </div>
+    </div>
+<br><br><br><br><br><br>
+</div>   -->
+
+
+

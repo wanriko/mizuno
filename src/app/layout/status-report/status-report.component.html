@@ -1,0 +1,175 @@
+<div class="container-fluid"> <br>
+
+<!-- ======================= HEADER ======================= -->
+<div class="card bg-white mb-3">
+  <div class="card-header"> 
+    <h3> &nbsp; &nbsp; ข้อมูลงานตามสถานะ</h3>
+
+    <div class="row justify-content-around">
+      <div class="col-11"
+          style = " font-size: 18px; " > 
+
+        <div class="form-check" (click)="modeSwitch('Complete')">
+          <input class="form-check-input" type="radio" 
+                name="status" id="statusComplete" 
+                style = " height: 23px; width: 23px;"
+                value="option1">
+          <label class="form-check-label" for="statusComplete">
+            จัดสินค้าเสร็จแล้ว
+          </label>   
+        </div>
+
+        <div class="form-check" (click)="modeSwitch('Doing')">     
+          <input class="form-check-input" type="radio" 
+                name="status" id="statusDoing" 
+                style = " height: 23px; width: 23px;"
+                value="option2">
+          <label class="form-check-label" for="statusDoing">
+            อยู่ในระหว่างการจัด
+          </label>  
+        </div>
+
+        <div class="form-check" (click)="modeSwitch('Remain')">  
+          <input class="form-check-input" type="radio" 
+                name="status" id="statusRemain" 
+                style = " height: 23px; width: 23px;"
+                value="option3" >
+          <label class="form-check-label" for="statusRemain">
+            ยังไม่ถูกจัด
+          </label>  
+        </div>
+
+      </div>    
+    </div>
+  </div>
+</div>
+<!-- =================== END HEADER =================== -->
+
+<!-- ======================= BODY ======================= table-responsive -->
+<div class="card bg-white mb-3" [hidden]="hiddenDetail">              <br><br> 
+  <div class="row justify-content-md-center">                             <br> 
+
+    <div class="col-md-9">
+      <b><h4> &nbsp; ข้อมูล ณ วันที่ {{Datenow}} </h4></b>
+    </div>
+
+    <div class="card-body">
+      <div class="row justify-content-md-center">
+        <div class="col-md-9">
+
+          <div class="card">
+            <div class="card-header" [hidden]="hiddenRemain">   
+              <div class="row justify-content-around"> 
+                  <div class="col text-center"> <h5> จำนวน BILL : {{count_sumRemain.countBill}}   </h5> </div> 
+                  <div class="col text-center"> <h5> จำนวน ITEM : {{count_sumRemain.sumItem}}     </h5> </div> 
+                  <div class="col text-center"> <h5> จำนวน QUANTITY : {{count_sumRemain.sumQty}}  </h5> </div> 
+              </div>  
+            </div>  
+
+            <div class="card-header" [hidden]="hiddenDoing">    
+              <div class="row justify-content-around"> 
+                  <div class="col text-center"> <h5> จำนวน BILL : {{count_sumDoing.countBill}}   </h5> </div> 
+                  <div class="col text-center"> <h5> จำนวน ITEM : {{count_sumDoing.sumItem}}     </h5> </div> 
+                  <div class="col text-center"> <h5> จำนวน QUANTITY : {{count_sumDoing.sumQty}}  </h5> </div> 
+              </div>  
+            </div>  
+
+            <div class="card-header" [hidden]="hiddenComplete"> 
+              <div class="row justify-content-around"> 
+                <div class="col text-center"> <h5> จำนวน BILL : {{count_sumComplete.countBill}}   </h5> </div> 
+                <div class="col text-center"> <h5> จำนวน ITEM : {{count_sumComplete.sumItem}}     </h5> </div> 
+                <div class="col text-center"> <h5> จำนวน QUANTITY : {{count_sumComplete.sumQty}}  </h5> </div> 
+              </div>  
+            </div>          
+          </div>
+
+      <!-- ===================== ยังไม่จัดสินค้า ===================== -->
+        <div class="scrollit" [hidden]="hiddenRemain">   
+          <table class="table table-bordered">
+            <thead>
+              <tr class="header">
+                <th class="text-center"><b><h5>BILL DATE</h5></b></th>
+                <th class="text-center"><b><h5>BILL N8</h5></b></th>
+                <th class="text-center"><b><h5>BILL NO</h5></b></th>
+                <th class="text-center"><b><h5>CUST NAME</h5></b></th>
+                <th class="text-center"><b><h5>ITEM ID</h5></b></th>
+                <th class="text-center"><b><h5>ITEM DESC</h5></b></th>
+                <th class="text-center"><b><h5>QUANTITY</h5></b></th>
+              </tr> 
+            </thead>
+            <tbody> 
+              <tr *ngFor='let detail of detail_Remain; trackBy: index;let i= index'>
+                <td class="text-left">{{detail.BILL_DATE}}</td>
+                <td class="text-left">{{detail.BILL_N8}}</td>
+                <td class="text-left">{{detail.BILL_NO}}</td>
+                <td class="text-left">{{detail.CUST_NAME}}</td>
+                <td class="text-left">{{detail.ITEM_ID}}</td>
+                <td class="text-left">{{detail.ITEM_DESC}}</td>
+                <td class="text-left">{{detail.QTY}}</td>
+              </tr>
+            </tbody> 
+          </table>   
+        </div>
+
+        <!-- ===================== กำลังจัด สินค้า ===================== -->
+          <div class="scrollit" [hidden]="hiddenDoing">    
+            <table class="table table-bordered">
+              <thead>
+                <tr class="header">
+                  <th class="text-center"><b><h5>BILL DATE</h5></b></th>
+                  <th class="text-center"><b><h5>BILL N8</h5></b></th>
+                  <th class="text-center"><b><h5>BILL NO</h5></b></th>
+                  <th class="text-center"><b><h5>CUST NAME</h5></b></th>
+                  <th class="text-center"><b><h5>ITEM ID</h5></b></th>
+                  <th class="text-center"><b><h5>ITEM DESC</h5></b></th>
+                  <th class="text-center"><b><h5>QUANTITY</h5></b></th>
+                </tr> 
+              </thead>
+              <tbody> 
+                <tr *ngFor='let detail of detail_Doing; trackBy: index;let i= index'>
+                  <td class="text-left">{{detail.BILL_DATE}}</td>
+                  <td class="text-left">{{detail.BILL_N8}}</td>
+                  <td class="text-left">{{detail.BILL_NO}}</td>
+                  <td class="text-left">{{detail.CUST_NAME}}</td>
+                  <td class="text-left">{{detail.ITEM_ID}}</td>
+                  <td class="text-left">{{detail.ITEM_DESC}}</td>
+                  <td class="text-left">{{detail.QTY}}</td>
+                </tr>
+              </tbody> 
+            </table>   
+          </div>
+
+        <!-- ===================== จัดสินค้า เสร็จแล้ว ===================== -->
+          <div class="scrollit" [hidden]="hiddenComplete">    
+            <table class="table table-bordered">
+              <thead>
+                <tr class="header">
+                  <th class="text-center"><b><h5>BILL DATE</h5></b></th>
+                  <th class="text-center"><b><h5>BILL N8</h5></b></th>
+                  <th class="text-center"><b><h5>BILL NO</h5></b></th>
+                  <th class="text-center"><b><h5>CUST NAME</h5></b></th>
+                  <th class="text-center"><b><h5>ITEM ID</h5></b></th>
+                  <th class="text-center"><b><h5>ITEM DESC</h5></b></th>
+                  <th class="text-center"><b><h5>QUANTITY</h5></b></th>
+                </tr> 
+              </thead>
+              <tbody> 
+                <tr *ngFor='let detail of detail_Complete; trackBy: index;let i= index'>
+                  <td class="text-left">{{detail.BILL_DATE}}</td>
+                  <td class="text-left">{{detail.BILL_N8}}</td>
+                  <td class="text-left">{{detail.BILL_NO}}</td>
+                  <td class="text-left">{{detail.CUST_NAME}}</td>
+                  <td class="text-left">{{detail.ITEM_ID}}</td>
+                  <td class="text-left">{{detail.ITEM_DESC}}</td>
+                  <td class="text-left">{{detail.QTY}}</td>
+                </tr>
+              </tbody> 
+            </table>                                                                        
+          </div>
+
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>
+<!-- ===================== END BODY ===================== -->

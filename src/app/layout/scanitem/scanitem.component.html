@@ -1,0 +1,114 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="page-header">
+        <h2>
+          <b>เพิ่ม Stock Location Item</b>
+        </h2>
+        <p class="category"></p>
+        <hr>
+      </div>
+
+
+      <div [hidden]="!itemPage" class="jumbotron">
+
+        <form ngNativeValidate (ngSubmit)="submit()">
+
+          <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+              <h3> สแกนบาร์โค๊ด ITEM </h3>
+            </div>
+          </div>
+          
+          <div class="row justify-content-md-center">
+            <div class="col-md-5">
+              <div class="form-group">
+                <input #myInput type="text" name="barcode" class="form-control" [(ngModel)]="barcode.item">
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <button (click)="clear()" class="btn btn-danger">Clear</button>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div [hidden]="!itemNumPage" class="jumbotron">
+        <form ngNativeValidate>
+          <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+              <h3> กรอกจำนวน ITEM หรือ แสกนบาร์โค๊ด </h3>
+            </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <form class="col-md-5" ngNativeValidate (ngSubmit)="check()">
+              <div class="form-group">
+                <label>บาร์โค๊ด</label>
+                <input #myitemNum type="text" maxlength="13" name="barcode" class="form-control" [(ngModel)]="barcode.chkNum">
+              </div>
+            </form>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label>จำนวน</label>
+                <input type="text" name="itemNum" class="form-control" [(ngModel)]="barcode.itemNum" onKeyUp="if(isNaN(this.value)){ form.classList.add('was-validated'); this.value='';}"
+                  required>
+                <div class="invalid-feedback">
+                  โปรดกรอกตัวเลข
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <button (click)="back()" class="btn btn-info">Back</button>
+            <button (click)="submitItemNum()" class="btn btn-success">Submit</button>
+          </div>
+        </div>
+      </div>
+      <div [hidden]="!locationPage" class="jumbotron">
+        <form ngNativeValidate (ngSubmit)="submitLocate()">
+
+          <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+              <h3> สแกนบาร์โค๊ด LOCATION </h3>
+            </div>
+          </div>
+          <div class="row justify-content-md-center">
+            <div class="col-md-5">
+              <div class="form-group">
+                <input #myLocation type="text" name="location" class="form-control" [(ngModel)]="barcode.location" required>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row justify-content-md-center">
+          <div class="col-md-auto">
+            <button (click)="back()" class="btn btn-info"> Back</button>
+            <button (click)="clear()" class="btn btn-danger">Clear</button>
+          </div>
+        </div>
+      </div>
+      <table class="table">
+        <tr>
+          <th>ITEM ID</th>
+          <th>ITEM DESC</th>
+          <th>QUANTITY</th>
+          <th>LOCATION ID</th>
+        </tr>
+        <tr>
+          <td>{{dataScan.ITEM_ID}}</td>
+          <td>{{dataScan.ITEM_DESC}}</td>
+          <td>{{dataScan.QUANTITY}}</td>
+          <td>{{dataScan.LOCATION_ID}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

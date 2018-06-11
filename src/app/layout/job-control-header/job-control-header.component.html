@@ -1,0 +1,416 @@
+<div class="container-fluid"> <br>
+<div class="row">   
+    <div class="col">  
+  <!-- ''''''''''''''''''''''''''''' ตารางข้อมูลงานค้างงงง '''''''''''''''''''''''''''''-->
+  <div class="card mb-3"> 
+    <div class="card border-warning" style=" border: 2px solid">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-auto mr-auto"> 
+            <b> &nbsp; ข้อมูลงานค้าง </b>
+          </div>
+  
+          <div class="col-auto">                
+            <button type="button" class="btn btn-outline-warning btn-rounded waves-effect"
+                    (click)="Detail_Remain()"> รายละเอียด 
+            </button>
+          </div>
+  
+        </div>
+      </div>
+  
+      <div class="card-body">  
+        <table class="table table-hover table-bordered" >
+          <thead>
+            <tr class="table-warning">
+              <th> </th>
+              <th class="text-right">จำนวนงานทั้งหมด</th>
+              <th class="text-right">จำนวนงานที่เสร็จ</th>
+              <th class="text-right">เปอร์เซ็นต์งานที่เสร็จ</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>จำนวน Bill</td>
+              <td class="text-right">{{ data_JobReport.allBill }}</td>
+              <td class="text-right">{{ data_JobReport.remainBill }}</td>
+              <td class="text-right">{{ data_JobReport.perBill_1 }} %</td>
+            </tr>
+            <tr>
+              <td>จำนวน SKU</td>
+              <td class="text-right">{{ data_JobReport.allItem }}</td>
+              <td class="text-right">{{ data_JobReport.remainItem }}</td>
+              <td class="text-right">{{ data_JobReport.perItem_1 }} %</td>
+            </tr>
+            <tr>
+              <td>จำนวน QTY</td>
+              <td class="text-right">{{ data_JobReport.allQty }}</td>
+              <td class="text-right">{{ data_JobReport.remainQty }}</td>
+              <td class="text-right">{{ data_JobReport.perQty_1 }} %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+    </div> 
+  </div>
+  <!-- ''''''''''''''''''''''''''''' จบตารางข้อมูลงานค้างงงง ''''''''''''''''''''''''''''' -->
+  
+  <!--/////////////////// แสดงรายละเอียด ข้อมูลของงานค้าง //////////////////////////////-->
+  <div class="card mb-3" [hidden]='hiddenDetail_Remain'> 
+    <div class="card border-warning" style=" border: 2px solid">
+      <div class="card-header">
+        <b><h3> &nbsp; รายละเอียด ข้อมูลงานค้าง </h3></b>
+      </div>
+  
+      <div class="card-body">  
+        <div class="scrollit"> 
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="table-warning">
+                <th>BILL N8</th>               
+                <th>เลขที่ Bill</th>                
+                <th>วันที่ Bill</th>  
+                <th>ชื่อร้านค้า</th>  
+                <th class="text-right">จำนวน SKU</th>    
+                <th class="text-right">จำนวน Quantity</th>                                                        
+              </tr>
+            </thead>
+            
+            <tbody>   
+              <tr *ngFor='let data of DeRemain; trackBy: index;let i= index'>                          
+                <td>{{ data.BILL_N8 }}</td>                           
+                <td>{{ data.BILL_NO }}</td>  
+                <td>{{ data.BILL_DATE }}</td>       
+                <td>{{ data.CUST_NAME }}</td>    
+                <td class="text-right">{{ data.ITEM_ID_COUNT }}</td>    
+                <td class="text-right">{{ data.FULL_QTY }}</td>                                                                                           
+              </tr>
+            </tbody>
+          </table>
+        </div>  
+      </div>
+    </div> 
+  </div> 
+  <!-- ////////////////// แสดงรายละเอียด ข้อมูลของงานค้าง  /////////////////////////// -->
+
+</div>
+<div class="col">  
+  <!-- ''''''''''''''''''    ตารางข้อมูลงานปัจจุบัน     '''''''''''''''''''''''''''' -->
+  <div class="card mb-3"> 
+    <div class="card border-success" style=" border: 2px solid">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-auto mr-auto">
+            <b> &nbsp; ข้อมูลปัจจุบัน ณ วันที่ {{Datenow}} </b>
+          </div>
+          <div class="col-auto">                
+            <button type="button" class="btn btn-outline-success btn-rounded waves-effect"
+                    (click)="Detail_Success()"> รายละเอียด 
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card-body">  
+      <table class="table table-hover table-bordered table-light">   
+        <thead>
+          <tr class="table-success">
+            <th> </th>
+            <th class="text-right">จำนวนงานทั้งหมด</th>
+            <th class="text-right">จำนวนงานที่เสร็จ</th>
+            <th class="text-right">เปอร์เซ็นต์งานที่เสร็จ</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr>
+            <td>จำนวน Bill</td>
+            <td class="text-right">{{ data_JobReport.PreBill }}</td>
+            <td class="text-right">{{ data_JobReport.FinBill }}</td>
+            <td class="text-right">{{ data_JobReport.perBill_2 }} %</td>
+        
+          </tr>
+          <tr>
+            <td>จำนวน SKU</td>
+            <td class="text-right">{{ data_JobReport.PreItem }}</td>
+            <td class="text-right">{{ data_JobReport.FinItem}}</td>
+            <td class="text-right">{{ data_JobReport.perItem_2 }} %</td>
+          </tr>
+          <tr>
+            <td>จำนวน QTY</td>
+            <td class="text-right">{{ data_JobReport.PreQty }}</td>
+            <td class="text-right">{{ data_JobReport.FinQty }}</td>
+            <td class="text-right">{{ data_JobReport.perQty_2 }} %</td>
+          </tr>
+        </tbody>
+      </table>
+      </div> 
+    </div>
+  </div>
+  <!-- ''''''''''''''''''''''''''''' จบตารางข้อมูลงานปัจจุบัน ''''''''''''''''''''''''''''' -->
+  
+  <!--/////////////////// แสดงรายละเอียด ข้อมูลงานวันปัจจุบันที่เสร็จ ///////////////////// -->
+  <div class="card mb-3"  [hidden]="hiddenDetail_Success"> 
+    <div class="card border-success" style=" border: 2px solid">
+      <div class="card-header">
+        <b><h5> &nbsp; รายละเอียด ข้อมูลงานปัจจุบันที่เสร็จ </h5></b>
+      </div>
+  
+      <div class="card-body">
+        <div class="scrollit"> 
+          <table class="table table-hover">
+            <thead>
+              <tr class="table-success">
+                <th>BILL N8</th>               
+                <th>เลขที่ Bill</th>                
+                <th>วันที่ Bill</th>  
+                <th>ชื่อร้านค้า</th>  
+                <th class="text-right">จำนวน SKU</th>    
+                <th class="text-right">จำนวน Quantity</th>                                                        
+              </tr>
+            </thead>
+            <tbody>   
+              <tr *ngFor='let data of DeSuccess; trackBy: index;let i= index'>                          
+                <td>{{ data.BILL_N8 }}</td>                           
+                <td>{{ data.BILL_NO }}</td>  
+                <td>{{ data.BILL_DATE }}</td>       
+                <td>{{ data.CUST_NAME }}</td>    
+                <td class="text-right">{{ data.ITEM_ID_COUNT }}</td>    
+                <td class="text-right">{{ data.FULL_QTY }}</td>                                                                                           
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> 
+  </div> 
+  <!-- ////////////////// แสดงรายละเอียด ข้อมูลงานวันปัจจุบันที่เสร็จ  ////////////////////////-->
+
+</div>
+</div>
+
+<div class="row">   
+    <div class="col"> 
+  <!-- ''''''''''''''''''    ตารางข้อมูลงาน WAVE_BIG_JOB ทั้งหมด    '''''''''''''''''''''''''''' -->
+  <div class="card mb-3"> 
+    <div class="card border-primary" style=" border: 2px solid">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-auto mr-auto">
+            <b> &nbsp; ข้อมูล WAVE BULK JOB </b>
+          </div>
+          <div class="col-auto">                
+            <button type="button" class="btn btn-outline-primary btn-rounded waves-effect"
+            (click)="Detail_BigJob()"> รายละเอียด 
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="card-body">  
+      <table class="table table-hover table-bordered table-light">   
+        <thead>
+          <tr class="table-primary">
+            <th> </th>
+            <th class="text-right">จำนวนงานทั้งหมด</th>
+            <th class="text-right">จำนวนงานที่เสร็จ</th>
+            <th class="text-right">เปอร์เซ็นต์งานที่เสร็จ</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr>
+            <td>จำนวน Bill</td>
+            <td class="text-right">{{ data_JobReport.BillWave }}</td>
+            <td class="text-right">{{ data_JobReport.FinBillWave }}</td>      
+            <td class="text-right">{{ data_JobReport.perBill_3 }} %</td>
+          </tr>
+          <tr>
+            <td>จำนวน SKU</td>
+            <td class="text-right">{{ data_JobReport.ItemWave }}</td>
+            <td class="text-right">{{ data_JobReport.finItemWave }}</td>
+            <td class="text-right">{{ data_JobReport.perItem_3 }} %</td>
+          </tr>
+          <tr>
+            <td>จำนวน QTY</td>
+            <td class="text-right">{{ data_JobReport.QtyWave }}</td>
+            <td class="text-right">{{ data_JobReport.finQtyWave }}</td>
+            <td class="text-right">{{ data_JobReport.perQty_3 }} %</td>
+          </tr>
+        </tbody>  
+      </table>  <br>  <br>
+      </div> 
+    </div>     
+  </div>
+  <!-- ''''''''''''''''''''''''''''' จบตารางข้อมูลงาน WAVE_BIG_JOB ทั้งหมด ''''''''''''''''''''''''''''' -->
+  
+  <!--/////////////////// แสดงรายละเอียด ข้อมูลงาน WAVE_BIG_JOB ทั้งหมด ////  *ngIf="tooggleDetail_DeBigJob == false" /// -->
+  <div class="card mb-3" [hidden]='hiddenDetail_DeBigJob'> 
+    <div class="card border-primary" style=" border: 2px solid">
+      <div class="card-header">
+        <b><h5> &nbsp; รายละเอียด ข้อมูล WAVE BULK JOB ที่เสร็จ</h5></b>
+      </div>
+  
+      <div class="card-body">
+        <div class="scrollit"> 
+          <table class="table table-hover">
+            <thead>
+              <tr class="table-primary">            
+                <th>เลขที่ Bill</th>                
+                <th>วันที่ตรวจงาน</th>   
+                <th>เลขที่ SKU</th>    
+                <th class="text-center">จำนวน Quantity</th>                                                        
+              </tr>
+            </thead>
+  
+            <tbody>   
+              <tr *ngFor='let data of DeBigJob; trackBy: index;let i= index'>                                                  
+                <td>{{ data.BILL_NO }}</td>  
+                <td>{{ data.END_CHECK_TIME }}</td>         
+                <td>{{ data.ITEM_ID }}</td>    
+                <td class="text-center">{{ data.QTY }}</td>                                                                                       
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> 
+  </div> 
+  <!-- ////////////////// แสดงรายละเอียด ข้อมูลงาน WAVE_BIG_JOB ทั้งหมด /////////////////////-->
+  <br> <br>
+</div>
+<div class="col"> 
+  <!-- ''''''''''''''''''''' ตารางข้อมูลงาน CONSOLIDATE  ''''''''''''''''''''' -->
+  <div class="card mb-3"> 
+    <div class="card border-info" style=" border: 2px solid">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-auto mr-auto"> 
+            <b> &nbsp; ข้อมูลงาน WAVE CONSOLIDATE </b>
+          </div>
+  
+          <div class="col-auto">                
+            <button type="button" class="btn btn-outline-info btn-rounded waves-effect"
+                    (click)="Detail_ConsolJob()"> รายละเอียด 
+            </button>
+          </div>
+  
+        </div>
+      </div>
+  
+      <div class="card-body">  
+        <table class="table table-hover table-bordered" >
+          <thead>
+            <tr class="table-info">
+              <th> </th>
+              <th class="text-right">จำนวนงานทั้งหมด</th>
+              <th class="text-right">จำนวนงานที่เสร็จ</th>
+              <th class="text-right">เปอร์เซ็นต์งานที่เสร็จ</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>จำนวน Bill</td>
+              <td class="text-right">{{ data_JobReport.AllBillCon }}</td>
+              <td class="text-right">{{ data_JobReport.finBillCon }}</td>
+              <td class="text-right">{{ data_JobReport.perBill_4 }} %</td>
+            </tr>
+            <tr>
+              <td>จำนวน SKU</td>
+              <td class="text-right">{{ data_JobReport.AllItemCon }}</td>
+              <td class="text-right">{{ data_JobReport.finItemCon }}</td>
+              <td class="text-right">{{ data_JobReport.perItem_4 }} %</td>
+            </tr>
+            <tr>
+              <td>จำนวน QTY</td>
+              <td class="text-right">{{ data_JobReport.AllQTYCon }}</td>
+              <td class="text-right">{{ data_JobReport.finQTYCon }}</td>
+              <td class="text-right">{{ data_JobReport.perQty_4 }} %</td>
+            </tr>
+            <tr>
+              <td>จำนวน QTY PICK</td>
+              <td class="text-right">{{ data_JobReport.AllQTYPick }}</td>
+              <td class="text-right">{{ data_JobReport.finQTYPick }}</td>
+              <td class="text-right">{{ data_JobReport.perQTYPick_4 }} %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+    </div> 
+  </div>
+  <!-- ''''''''''''''''''' ตารางข้อมูลงาน  CONSOLIDATE  ''''''''''''''''''' -->
+  
+  <!--///////////////// แสดงรายละเอียด ข้อมูลงาน CONSOLIDATE ////////////////////////////-->
+  <div class="card mb-3" [hidden]='hiddenDetail_DeConJob'> 
+    <div class="card border-info" style=" border: 2px solid">
+      <div class="card-header">
+        <b><h5> &nbsp; รายละเอียด ข้อมูลงาน WAVE CONSOLIDATE ที่เสร็จ</h5></b>
+      </div>
+  
+      <div class="card-body">  
+        <div class="scrollit"> 
+          <table class="table table-hover table-bordered">
+            <thead>
+              <tr class="table-info">            
+                <th>เลขที่ Bill</th> 
+                <th>เลขที่ Item</th>                 
+                <th class="text-right">เลขที่ SPOT</th>  
+                <th class="text-right">จำนวน Quantity</th> 
+                <th class="text-right">จำนวน Quantity Pick</th> 
+                <th class="text-right">วันที่เสร็จงาน</th>                                                    
+              </tr>
+            </thead>
+            
+            <tbody>   
+              <tr *ngFor='let data of DeConsolJob; trackBy: index;let i= index'>                                                 
+                <td>{{ data.BILL_NO }}</td>  
+                <td>{{ data.ITEM_ID }}</td>       
+                <td class="text-right">{{ data.SPOT_NO }}</td>    
+                <td class="text-right">{{ data.QTY }}</td>  
+                <td class="text-right">{{ data.QTY_PICK }}</td>   
+                <td class="text-right">{{ data.END_CONSOLIDATE }}</td>                                                                                              
+              </tr>
+            </tbody>
+          </table>
+        </div>  
+      </div>
+    </div> 
+  </div> 
+  <!-- //////////////// แสดงรายละเอียด ข้อมูลงาน CONSOLIDATE  ///////////////////////// -->
+</div>
+</div>
+  </div>
+ <br><br><br><br>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+

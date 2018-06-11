@@ -1,0 +1,89 @@
+<div class="container">         <br> <br>
+  <form ngNativeValidate (ngSubmit)="KeyIn_GOODS()">         
+  <!-- <form ngNativeValidate>   -->
+    <div class="row justify-content-start">
+      <div class="col-3"> 
+        <h4>BARCODE VENDER</h4> 
+      </div> 
+      <div class="col-5" [ngBusy]="busy">
+        <input class="form-control" type="text" maxlength="25" style="font-size: 25px"  #input1
+               name="Bvender"  placeholder="รหัสสินค้าต่างประเทศ" required [disabled]= "lock_input"
+               [(ngModel)]="input.BCODE_VENDER">
+      </div>
+      <div style="color: red" (click)="Check_Vender()">
+        <u><h4 style="padding-top: 8px" >ตรวจสอบ</h4></u>
+      </div>    &emsp;
+      <div style="color: green; font-size: 30px;" [hidden] = "hidden_check">
+          <i class="fa fa-check" style="padding-top: 8px" ></i>
+      </div>
+    </div>                                    <br>   
+
+    <div class="row justify-content-start">
+      <div class="col-3"> 
+        <h4>BARCODE885 ITEM</h4> 
+      </div> 
+      <div class="col-5">
+        <input class="form-control" type="number" min="9999999999999" max="9999999999999" style="font-size: 25px"
+                  name="B885"  placeholder="รหัสสินค้า" required
+                  [(ngModel)]="input.BCODE_885">
+      </div>
+    </div>                                    <br>   
+
+    <!-- <div class="row justify-content-start">
+      <div class="col-3"> 
+        <h4>DESCRIPTION</h4> 
+      </div> 
+      <div class="col-5">
+        <textarea class="form-control" rows="2" type="text"  maxlength="40" style="font-size: 25px" 
+                  placeholder="รายละเอียดสินค้า(เพิ่มเติม)" ng-model="input.ITM_DES"></textarea>
+      </div>
+    </div>                                    <br>    -->
+
+    <div class="row justify-content-start">
+      <div class="col-3"> 
+        <h4>QUANTITY</h4> 
+      </div> 
+      <div class="col-3">
+        <input class="form-control" type="number" maxlength="8" style="font-size: 25px"
+               name="Qty"  placeholder="จำนวนสินค้า" required
+               [(ngModel)]="input.QTY_">
+      </div>
+    </div>                                    <br>   
+  
+    <div class="row justify-content-start">
+      <div class="col-3"> 
+        <h4>PRICE</h4> 
+      </div> 
+      <div class="col-3">
+        <input class="form-control" type="number" maxlength="8" style="font-size: 25px"
+                  name="price"  placeholder="ราคาสินค้า" required
+                  [(ngModel)]="input.PRICE">
+      </div>
+    </div>                                    <br>     
+
+    <div class="row justify-content-start">
+      <div class="col-3"> 
+        <h4>PRICE (VAT)</h4> 
+      </div> 
+      <div class="col-3" [ngBusy]="busy">
+        <input class="form-control" type="number" maxlength="8" style="font-size: 25px"
+                name="priceV" placeholder="ราคาสินค้ารวมภาษี"  required  
+                [(ngModel)]="input.PRICE_VAT">
+      </div>
+    </div>                                <br>  <br>  <br>         
+
+    <div class="row justify-content-md-start">
+      <div class="col-7"> 
+        <button type="button" class="btn btn-outline-danger" (click)="clear()">
+          <b>CLEAR</b> 
+        </button> 
+      </div>                  &emsp; &emsp; 
+      <div class="col"> 
+        <button type="submit" class="btn btn-primary" style="font-size: 20px">
+                                                           <!-- (click)="KeyIn_GOODS()" -->
+            <b>ENTER</b>    
+        </button>                   
+      </div>                            
+    </div>                                    <br>    <br>
+  </form> 
+</div> 

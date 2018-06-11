@@ -1,0 +1,140 @@
+<div class="container-fluid">  
+  <div class="jumbotron" [hidden] = "Page1"> 
+    <form ngNativeValidate (ngSubmit)="check_Location()">  
+      <div class="row justify-content-md-center">          
+        <div class="col-md-auto">
+          <h5><b>  SCAN BARCODE LOCATION  </b></h5>
+        </div>
+      </div> 
+
+      <div [ngBusy]="busy" class="row justify-content-md-center">
+      <div class="col-md-4">
+        <div class="form-group">
+          <input  type="text" class="form-control" required maxlength="8" minlength="1"
+                  #input1 name="barcode" [(ngModel)]="barcode.LOCAT" required>
+        </div>
+      </div>
+      </div> 
+
+      <div class="row justify-content-center">
+        <button type="submit" class="btn btn-primary btn-sm">
+          ENTER
+        </button>          &emsp;   &emsp; 
+        <button type="button" class="btn btn-danger btn-sm" (click)="CLEAR()">
+          CLEAR
+        </button>
+      </div>
+    </form>  
+  </div>
+<br>
+    <div class="container"  [hidden] = "Page2"> 
+      <div class="table-responsive">  
+        <table class="table table-sm table-bordered table-hover">  
+            <!-- style = "border: 2px solid black;" -->
+          <thead> 
+            <tr>
+              <th class="text-center"><b> EDIT </b></th> 
+              <th class="text-left"><b>LOCATION</b></th>
+              <th class="text-left"><b>ITEM ID</b></th>
+              <th class="text-left"><b>ITEM DESCRIPT</b></th>
+              <th class="text-center"><b>QUANTITY</b></th>
+              <th class="text-center"><b>CREATE BY</b></th>
+              <th class="text-center"><b>UPDATE BY</b></th>           
+            </tr> 
+          </thead>
+          <tbody> 
+            <tr *ngFor='let show of Data_forShow; trackBy: index;let i= index'>
+                <td class="text-center"> 
+                  <button type="button" class="btn btn-danger btn-sm btn-rounded"
+                          (click) = "findforUpdate(show.LOCATION_ID)" >
+                    เลือก
+                  </button>
+                </td> 
+              <td class="text-left"> {{show.LOCATION_ID}} </td>
+              <td class="text-left"> {{show.ITEM_ID}} </td>
+              <td class="text-left"> {{show.ITEM_DESC}} </td>
+              <td class="text-right"> {{show.QUANTITY}} </td>
+              <td class="text-right"> {{show.CREATE_BY}} </td>
+              <td class="text-right"> {{show.UPDATE_BY}} </td>                               
+            </tr>
+          </tbody> 
+        </table>   
+      </div>
+    </div>
+
+    <form ngNativeValidate (ngSubmit)="Update_qty()"> 
+      <div class="container" [hidden]="Page3"> 
+        <div class="table-responsive">  
+          <table class="table table-sm table-bordered table-hover">  
+            <thead> 
+              <tr>
+                <th class="text-center"><b>LOCATION</b></th>
+                <th class="text-center"><b>ITEM ID</b></th>
+                <th class="text-center"><b>ITEM DESCRIPT</b></th>
+                <th class="text-center"><b>QUANTITY</b></th>    
+                <th class="text-center"><b>ACTION</b></th>         
+              </tr> 
+            </thead>
+            <tbody> 
+              <!-- <tr> -->
+              <tr *ngFor='let Data of Data_forUpdate; trackBy: index;let i= index'>
+                <td class="text-center"> {{Data.LOCATION_ID}} </td>
+                <td class="text-center"> {{Data.ITEM_ID}} </td>
+                <td class="text-center"> {{Data.ITEM_DESC}} </td>
+
+                <!-- <td class="text-center"> {{location}} </td>
+                <td class="text-center"> {{itemid}} </td>
+                <td class="text-center"> {{itemdesc}} </td> -->
+                <td class="text-right"> 
+                  <div [ngBusy]="busy"> 
+                    <div class="text-center">  
+                      <input type="number" name="QUANTITY" required value={{Data.QUANTITY}}
+                            #input2 class="text-center" max="99"> 
+ 
+                    </div>       
+                  </div>
+                </td> 
+                <td class="text-center"> 
+                  <!-- {{i}} -->
+                  <button 
+                    type="submit" 
+                    class="btn btn-success btn-sm btn-rounded" 
+                    [hidden]="Data.QUANTITY == input2.value"
+                    (click)="Update_qty(Data.LOCATION_ID , Data.ITEM_ID, input2.value)"
+                  >
+                    ยืนยัน
+                  </button>  
+
+                  <button 
+                    type="button" 
+                    class="btn btn-danger btn-sm btn-rounded"
+                    [hidden]="Data.QUANTITY == 0" 
+                    (click)="delete_item(Data.LOCATION_ID , Data.ITEM_ID)"
+                  >
+                    หมด
+                </button> 
+                </td>                  
+              </tr>
+            </tbody> 
+          </table>   
+        </div>
+        <div class="row justify-content-center">
+            <!-- <button type="submit" class="btn btn-success btn-sm btn-rounded" >
+              ยืนยัน
+            </button>         &emsp;   &emsp;  -->
+            <button type="button" class="btn btn-warning btn-sm btn-rounded" (click) = "BACK_1()" >
+              กลับ
+            </button>
+        </div>
+      </div>          <br>
+    </form> 
+         
+
+</div>
+
+
+
+
+
+
+
