@@ -42,5 +42,4 @@ import { Globals } from './components/globals/globals';
   ],
   bootstrap: [AppComponent]
 })
-
 export class AppModule { }
