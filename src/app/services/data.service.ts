@@ -26,7 +26,7 @@ export class DataService {
   }
 
 
-///////////////////////////////////// Location master ////////////////////
+///////////////////////////////////////// Location master ////////////////////
   datalocate() {
     return this.http.post('http://10.0.120.126:1668/api/datalocate',{})
       .map(res => res.json());
@@ -64,7 +64,6 @@ export class DataService {
       .map(res => res.json());
   }
 
-  
   updatestock(data) {
     return this.http.post('http://10.0.120.126:1668/api/updatestock', data)
       .map(res => res.json());
@@ -75,69 +74,73 @@ export class DataService {
       .map(res => res.json());
   }
 
- //////////////////////  http://10.0.120.126:1669/api/name  /////////////////////////
-  ///////////////////////////////////////////////
- /////TSDC_JOB_CONTROL_HEADER ------ WAVE_BIG_JOB ------- TSDC_WAVE_DETAIL : CONSOLIDATE
+ //////////////////////  http://10.0.120.126:1669/api/name  //////////////////////
+
+ /////////////////////////////////////////////////////////////////////////////////
+ ///////////////////////////////  job-control-header  ////////////////////////////
  Job_HEAD_BIG_CONSOL(){
   return this.http.post('http://localhost:1234/api/Job_HEADER_BIGJOB_CONSOLIDATE',[])
   .map(res => res.json());
 }
 
-  /////////// --------  แสดงรายละเอียด ข้อมูลของงานค้าง 
+  //--------  แสดงรายละเอียด ข้อมูลของงานค้าง 
   Detail_RemainJob(){
     return this.http.post('http://localhost:1234/api/DetailRemain_JobH',[])
     .map(res => res.json());
   }
 
-  /////////// --------  แสดงรายละเอียด ข้อมุลงานวันปัจจุบันที่เสร็จ
+  //--------  แสดงรายละเอียด ข้อมุลงานวันปัจจุบันที่เสร็จ
   Detail_SuccessJob(){
     return this.http.post('http://localhost:1234/api/SuccessRemain_JobH',[])
     .map(res => res.json());
   }
 
-  /////////// --------  แสดงรายละเอียด ข้อมูลงาน WAVE_BIG_JOB ทั้งหมด
+  //--------  แสดงรายละเอียด ข้อมูลงาน WAVE_BIG_JOB ทั้งหมด
   Detail_WaveJob(){
     return this.http.post('http://localhost:1234/api/Detail_WaveBigJob',[])
     .map(res => res.json());
   }
 
- ///////////------- แสดงรายละเอียด ข้อมูลงาน CONSOLIDATE
+ //------- แสดงรายละเอียด ข้อมูลงาน CONSOLIDATE
   Detail_ConsolJob(){
     return this.http.post('http://localhost:1234/api/Detail_Consolidate',[])
     .map(res => res.json());
   }
 
-  //////////////////////////////////////////////////////////////////////////
-  //////////// -------- งานทั้งหมด
+  /////////////////////////////////////////////////////////////////////////
+  //////////////////////////// scan-job-detail ////////////////////////////
+  // -------- งานทั้งหมด
   SearchBill_No(Rawdata){
     console.log(Rawdata);
     return this.http.post('http://localhost:1234/api/SearchBillNo', Rawdata)
     .map(res => res.json());
   }
 
-  //////////////////////REPORT/////////////////////////
-  //////////// Status Remain
+  
+  //////////////////////////////////////////////////////////////
+  ////////////////////// status-report /////////////////////////
+  //------------ Status Remain
   status_Remain(){
     console.log();
     return this.http.post('http://localhost:1234/api/statusRemain', [])
     .map(res => res.json());
   }
 
-  //////////// Status Doing
+   //------------ Status Doing
   status_Doing(){
     console.log();
     return this.http.post('http://localhost:1234/api/statusDoing', [])
     .map(res => res.json());
   }
 
-  //////////// Status Complete
+   //------------ Status Complete
   status_Complete(){
     console.log();
     return this.http.post('http://localhost:1234/api/statusComplete', [])
     .map(res => res.json());
   }
 
-  ////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
   /////////// dropdown เลือก DeptProduct
   DeptProduct_Service(){
     console.log();
@@ -145,50 +148,51 @@ export class DataService {
     .map(res => res.json());
   }
 
-  /////////////////////////////////////////
-  ///////////TSDC_WAVE_BIG_JOB --------Check WAVE_BIG_JOB_NO 
+  ////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////  worker-checkjob  ///////////////////////////////
+  //--------------- TSDC_WAVE_BIG_JOB --------Check WAVE_BIG_JOB_NO 
   Bill_Service(input){
     // console.log(input);
     return this.http.post('http://localhost:1234/api/Scan_Job', input)
     .map(res => res.json());
   }
 
-  ///////////TSDC_WAVE_BIG_JOB --------Check WAVE_BIG_JOB_NO , BCODE_885_ITM
+  //--------------- TSDC_WAVE_BIG_JOB --------Check WAVE_BIG_JOB_NO , BCODE_885_ITM
   Bill_Item_Service(input){
     // console.log(input);
     return this.http.post('http://localhost:1234/api/Scan_Job_Barcode', input)
     .map(res => res.json());
   }
 
-  ///////////  UPDATE WORKER_ID +++ START_CHECK_TIME
+  //---------------  UPDATE WORKER_ID +++ START_CHECK_TIME
   Upd_WorkerTCheck(barcode){
     console.log(barcode);
     return this.http.post('http://localhost:1234/api/Update_WorkerStartCheck', barcode)
     .map(res => res.json());
   }
 
-  /////////////////  UPDATE อื่นนนนนๆๆๆ 
+  //---------------  UPDATE อื่นนนนนๆๆๆ 
   Upd_EndCheck(barcode){
     console.log(barcode);
     return this.http.post('http://localhost:1234/api/Update_EndCheck', barcode)
     .map(res => res.json());
   }
 
-///////////////////////////////////////////////
-/////api_DailyMonitor
+///////////////////////////////////////////////////////////////////////////
+/////////////////////////////////api_DailyMonitor
  Service_DailyMonitor(){
   return this.http.post('http://localhost:1234/api/api_DailyMonitor',[])
   .map(res => res.json());
 }
 
-///////////////////////////////////////////////////////////////////////
-//////////////// show  LocationItem /////////////////
+///////////////////////////////////////////////////////////////////////////
+//////////////// show  LocationItem ///////////////////////////////////////
 getTableLocationItem(){
   return this.http.post('http://localhost:1234/api/TableLOCATION_ITEM','')
   .map(res => res.json());
 }
 
-//////////////// Search  LocationItem ///////////////// 
+//////////////// Search  LocationItem //////////////////////////////////////  
 SearchLocationItem(ITEM_ID){
   // console.log('dataservice/SearchLocationItem ITEM_ID  :'+ITEM_ID);
   var LocationItem = { ITEM_ID };//เอาค่า id ใส่ใน array userID

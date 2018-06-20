@@ -30,6 +30,7 @@ export class ScanJobDetailComponent implements OnInit {
   private cust_name
   private worker
   private job_status
+  private location
 
   private hiddenDetail = true;
 
@@ -44,6 +45,8 @@ export class ScanJobDetailComponent implements OnInit {
     this.detail_Status = [];
     // this.details = [];
     this.focusInput();
+
+    //this.barcode.BILL_NO = '4723101043320'
   }
 
   focusInput() {
@@ -106,6 +109,7 @@ export class ScanJobDetailComponent implements OnInit {
             this.bill_date = response.data[0].BILL_DATE;
             this.cust_name = response.data[0].CUST_NAME;
             this.worker = response.data[0].WORKER_ID;
+      
           } 
         else {  
           swal({

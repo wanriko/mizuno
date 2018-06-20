@@ -1,12 +1,12 @@
-<div class="container-fluid"> <br>
+<div class="container-fluid"  style="line-height: 16px; letter-spacing:0pt">
   <div class="row">   
     <div class="col">  
     <!-- ''''''''''''''''''''''''''''' ตารางข้อมูลงานค้างงงง '''''''''''''''''''''''''''''-->
     <div class="card mb-3"> 
       <div class="card border-warning" style=" border: 2px solid">
         <div class="card-header">
-          <div class="row">
-            <div class="col-auto mr-auto" style="font-size:21px; color: rgb(58, 48, 4); " > 
+          <div class="row align-items-center">
+            <div class="col-auto mr-auto" style="font-size:18px; color: rgb(58, 48, 4); " > 
               <b> &nbsp; ข้อมูลงานค้าง </b>
             </div>
     
@@ -20,18 +20,18 @@
         </div>
         <!-- <div class="card-body">   -->
           <table class="table table-bordered table-light">   
-            <thead style="font-size: 17px;">
-              <tr class="table-warning">
+            <thead>
+              <tr class="table-warning" style="font-size: 16px;">
                 <th class="text-center" colspan="2"> JOB </th>
                 <th class="text-center"> AMOUNT </th>
                 <th class="text-center"> COMPLETE </th>
-                <th class="text-center"> COMPLETE &nbsp; % </th>
+                <th class="text-center"> COMPLETE % </th>
               </tr>
             </thead>
           
-            <tbody> 
+            <tbody style="font-size: 14px;"> 
               <tr>     
-                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> PER ORDER</th>       
+                <th class="text-center" rowspan="3"> <br><br> PER ORDER</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.All_BillPer}} </th>
                 <th class="text-right"> {{dataJob.Complete_BillPer}} </th>
@@ -51,7 +51,7 @@
               </tr>
   
               <tr>     
-                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> CASHSALE</th>       
+                <th class="text-center" rowspan="3"> <br><br> CASHSALE</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.All_BillCash}} </th>
                 <th class="text-right"> {{dataJob.Complete_BillCash}} </th>
@@ -71,7 +71,7 @@
               </tr>
   
               <tr>     
-                <th class="text-center" rowspan="2" style="font-size: 17px;"> <br> SORTER</th>       
+                <th class="text-center" rowspan="2"> <br> SORTER</th>       
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.All_ItemSort}} </th>
                 <th class="text-right"> {{dataJob.Complete_ItemSort}} </th>
@@ -85,7 +85,7 @@
               </tr>
   
               <tr>     
-                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> WAVE CONSOLIDATE</th>       
+                <th class="text-center" rowspan="3"> <br><br> WAVE CONSOLIDATE</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.All_BillConsol}} </th>
                 <th class="text-right"> {{dataJob.Complete_BillConsol}} </th>
@@ -134,8 +134,8 @@
     <div class="card mb-3"> 
       <div class="card border-success" style=" border: 2px solid">
         <div class="card-header">
-          <div class="row">
-            <div class="col-auto mr-auto" style="font-size:21px; color: rgb(16, 102, 42);">
+          <div class="row align-items-center">
+            <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42);">
               <b> &nbsp; ข้อมูลปัจจุบัน ณ วันที่ {{Datenow}} </b>
             </div>
 
@@ -150,8 +150,8 @@
     
         <!-- <div class="card-body">   -->
           <table class="table table-bordered table-light">   
-            <thead style="font-size: 17px;">
-              <tr class="table-success">
+            <thead>
+              <tr class="table-success" style="font-size: 16px;">
                 <th class="text-center" colspan="2"> JOB </th>
                 <th class="text-center"> AMOUNT </th>
                 <th class="text-center"> COMPLETE </th>
@@ -159,9 +159,9 @@
               </tr>
             </thead>
           
-            <tbody> 
+            <tbody  style="font-size: 14px;"> 
               <tr>     
-                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> PER ORDER</th>       
+                <th class="text-center" rowspan="3"> <br><br> PER ORDER</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.AAll_BillPer}} </th>
                 <th class="text-right"> {{dataJob.CComplete_BillPer}} </th>
@@ -181,7 +181,7 @@
               </tr>
 
               <tr>     
-                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> CASHSALE</th>       
+                <th class="text-center" rowspan="3"> <br><br> CASHSALE</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.AAll_BillCash}} </th>
                 <th class="text-right"> {{dataJob.CComplete_BillCash}} </th>
@@ -201,7 +201,7 @@
               </tr>
 
               <tr>     
-                <th class="text-center" rowspan="2" style="font-size: 17px;"> <br> SORTER</th>       
+                <th class="text-center" rowspan="2"> <br> SORTER</th>       
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.AAll_ItemSort}}  </th>
                 <th class="text-right"> {{dataJob.CComplete_ItemSort}} </th>
@@ -215,7 +215,7 @@
               </tr>
 
               <tr>     
-                <th class="text-center" rowspan="3" style="font-size: 17px;"> <br><br> WAVE CONSOLIDATE</th>       
+                <th class="text-center" rowspan="3"> <br><br> WAVE CONSOLIDATE</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.AAll_BillConsol}}  </th>
                 <th class="text-right"> {{dataJob.CComplete_BillConsol}} </th>
@@ -264,17 +264,20 @@
       <div class="card mb-3"> 
         <div class="card border-info" style=" border: 2px solid">
           <div class="card-header">
-            <div class="row">
-              <div class="col-auto mr-auto" style="font-size:21px; color: rgb(16, 102, 42);">
+            <div class="row justify-content-between align-items-center">
+              <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42); padding: 5px;">
                 <b> &nbsp; ตารางข้อมูลงาน Online  </b>
+              </div>
+              <div class="col-auto">
+                <button type="button" class="btn btn-info btn-sm"> รายละเอียด </button>
               </div>
             </div>
           </div>
       
           <!-- <div class="card-body">   -->
             <table class="table table-bordered table-light">   
-              <thead style="font-size: 17px;">
-                <tr class="table-info">
+              <thead>
+                <tr class="table-info" style="font-size: 16px;">
                   <th class="text-center" colspan="2"> JOB </th>
                   <th class="text-center"> AMOUNT </th>
                   <th class="text-center"> COMPLETE </th>
@@ -282,9 +285,9 @@
                 </tr>
               </thead>
 
-              <tbody> 
+              <tbody style="font-size: 14px;"> 
                 <tr>     
-                  <th class="text-center" rowspan="2" style="font-size: 17px;"> <br><br>LAZADA</th>       
+                  <th class="text-center" rowspan="2"> <br><br>LAZADA</th>       
                   <th class="text-center"> BILL </th>
                   <th class="text-right"> {{dataJob.PO_AllnotToday}} </th>
                   <th class="text-right"> {{dataJob.PO_FinnotToday}} </th>
@@ -298,7 +301,7 @@
                 </tr>
 
                 <tr>     
-                  <th class="text-center" rowspan="2" style="font-size: 17px;"> <br><br> LAZADA  {{Datenow}}</th>       
+                  <th class="text-center" rowspan="2"> <br><br> LAZADA  {{Datenow}}</th>       
                   <th class="text-center"> BILL  </th>
                   <th class="text-right"> {{dataJob.PO_AllToday}} </th>
                   <th class="text-right"> {{dataJob.PO_FinToday}} </th>
@@ -325,3 +328,11 @@
   
 
   
+ 
+<!-- SKU
+QTY
+จำนวนงาน
+
+คลิกดูรายละเอียดเพิ่มเติม เรียงจากจำนวนสินค้า และ ITEM_ID 
+ส่องส่วน จัดสินค้าเสร็จ จำนวน
+        จัดไม่เสร็จ   จำนวน -->

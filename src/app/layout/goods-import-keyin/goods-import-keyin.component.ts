@@ -43,7 +43,6 @@ export class GoodsImportKeyinComponent implements OnInit {
   }
 
   Check_Vender(){
-
     setTimeout(() => { this.focusInput() }, 150)
 
     this.busy = this.dataService.Search_BVENDER(this.input).subscribe(
@@ -151,9 +150,6 @@ export class GoodsImportKeyinComponent implements OnInit {
       })
   }
 
-
-
-
   clear(){
     this.input.BCODE_VENDER = [] 
     this.input.BCODE_885 = [] 
@@ -161,6 +157,7 @@ export class GoodsImportKeyinComponent implements OnInit {
     this.input.PRICE = [] 
     this.input.PRICE_VAT = []
 
+    this.hidden_check = true; 
     this.lock_input = false;
     setTimeout(() => { this.focusInput() }, 150)
   }

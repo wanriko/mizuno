@@ -114,5 +114,41 @@ ScanBar_Item(){
     }
 
 
+
+    // print(): void {
+    //   let printContents, popupWin;
+    //   printContents = document.getElementById('print-section').innerHTML;
+    //   popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    //   popupWin.document.open();
+    //   popupWin.document.write(`<html>
+    //                             <head>
+    //                               <title>Print Barcode Item</title>
+    //                                 <style>
+  
+    //                                 html, body,#wrapper {
+    //                                   height: 100%;
+    //                                   width: 100%;
+    //                                   margin: 0;
+    //                                   padding: 0;
+    //                                   border: 0;
+    //                                 }
+  
+    //                               </style>
+    //                             </head>
+    //                           <body onload="window.print();window.close()">
+  
+    //                           <table id="wrapper">
+    //                             <tr>
+    //                               <td>  ${printContents} </td>
+    //                               <td> ${printContents} </td>
+    //                             </tr>   
+    //                           <br>                           
+    //                           </table>                       
+  
+    //                         </body>
+    //                       </html>`
+    //   );
+    //   popupWin.document.close();
+    // }
 }
 

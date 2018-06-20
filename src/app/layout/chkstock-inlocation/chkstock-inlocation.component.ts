@@ -101,7 +101,6 @@ export class ChkstockInlocationComponent implements OnInit {
             // this.location = response.data[0].LOCATION_ID;  
             // this.itemid = response.data[0].ITEM_ID;  
             // this.itemdesc = response.data[0].ITEM_DESC;  
-
           }
       })
     }

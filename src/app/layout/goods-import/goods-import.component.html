@@ -1,11 +1,106 @@
-<div class="container-fluid"[hidden] = "Page1">  
+  <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+  <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+  <!-- <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+        
+        @page {
+            size: auto;
+            margin: 0;
+        }
+        @media print {
+            html, body {
+                width: 3cm;
+                height: 1.8cm;  
+            }
+
+            .page {  
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+            }
+        }
+        
+        </style>
+    </head>
+    
+    <body style="line-height: 8px; text-align: center; ">
+        <div class="page" style=" width: 140mm; height: 50mm;">
+            <div style="
+                border: 2px solid rgb(34, 136, 17);
+                margin: 1mm;
+                -webkit-column-count: 3; 
+                -moz-column-count: 3; 
+                -webkit-column-rule: 2px solid rgb(34, 136, 17); 
+                -moz-column-rule: 3px solid rgb(34, 136, 17)"
+                > 
+                <ngx-barcode [bc-element-type]="'svg'" [bc-format]="'EAN13'" [bc-width]="'1'" [bc-height]="'40'"
+                  [bc-font-size]="'8'" [bc-text-position]="'button'" [bc-value]="8859036792890" 
+                  [bc-display-value]="true" 
+                  [bc-margin]="margin" [bc-margin-top]="marginTop" [bc-margin-bottom]="marginBottom" 
+                  [bc-margin-left]="marginLeft" [bc-margin-right]="marginRight">
+                </ngx-barcode>
+                <b style="font-size: 8px"> 
+                    &emsp;  ราคา 
+                    &nbsp; &emsp; &emsp; &emsp; &emsp; &emsp; 100 บาท 
+                    <br>
+                    &emsp;  รวม vat 
+                    &nbsp; &nbsp; &nbsp; &emsp; &emsp; &emsp; 150 บาท  
+                </b>
+          
+           
+                <div style="margin: 1em 0;">
+                  <ngx-barcode [bc-element-type]="'svg'" [bc-format]="'EAN13'" [bc-width]="'1'" [bc-height]="'40'"
+                    [bc-font-size]="'8'" [bc-text-position]="'button'" [bc-value]="8859036792890" 
+                    [bc-display-value]="true" 
+                    [bc-margin]="margin" [bc-margin-top]="marginTop" [bc-margin-bottom]="marginBottom" 
+                    [bc-margin-left]="marginLeft" [bc-margin-right]="marginRight">
+                  </ngx-barcode>
+                  <b style="font-size: 8px"> 
+                      &emsp;  ราคา 
+                      &nbsp; &emsp; &emsp; &emsp; &emsp; &emsp; 100 บาท 
+                      <br>
+                      &emsp;  รวม vat 
+                      &nbsp; &nbsp; &nbsp; &emsp; &emsp; &emsp; 150 บาท  
+                  </b>
+                </div>
+
+                <div style="margin-top:1em"><b> </b></div>
+            </div>
+
+        </div>
+
+        <script src="./node_modules/jsbarcode/dist/JsBarcode.all.min.js">
+        </script>
+
+        <script>
+            JsBarcode("#barcode").options({font: "OCR-B"}) 
+            .EAN13("1234567890128", {fontSize: 18, textMargin: 1,height: 45,width: 1.1})
+            .render();
+        </script>
+    </body>
+</html> -->
+
+  <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+  <!-- oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo -->
+
+<div class="container-fluid" style="line-height: 2px;" [hidden] = "Page1" >  
   <div class="page-header"> 
     <div class="row justify-content-start" style="padding-top: 3px">  &nbsp;  &nbsp;   &nbsp;
-      <h2><b>สินค้านำเข้า</b></h2>         
-      &emsp; <h4 style="padding-top: 5px"> ( ตรวจนับจำนวนสินค้า - พิมพ์บาร์โค้ดสินค้า ) </h4>     
-    </div>        
-  </div>     <hr> 
-</div>    
+      <h2><b>สินค้านำเข้า</b></h2>   
+      &emsp; <h5 style="padding-top: 10px"> ( ตรวจนับจำนวนสินค้า - พิมพ์บาร์โค้ดสินค้า ) </h5>   
+    </div>     
+  </div>             
+</div>  
+    <hr>      
   <!-- ======================================================== -->
   <div class="container-fluid"> 
     <div class="jumbotron" [hidden] = "Page1">
@@ -20,8 +115,9 @@
           <div class="col-md-4">
             <div class="form-group">
               <input  type="text" class="form-control form-control-lg"  maxlength="25"
-                       #input1 name="barcode" [(ngModel)]="barcode.bar_Vender" required>
+                     name="barcode" [(ngModel)]="barcode.bar_Vender" required>
             </div>
+            <!-- #input1  -->
           </div>
         </div> 
         <div class="row justify-content-center">
@@ -86,24 +182,94 @@
         <div class="row justify-content-md-center">
           <div id="print-section">  
   <br>  
-            <ngx-barcode [bc-element-type]="'svg'" [bc-format]="EAN13" [bc-width]="'3'" [bc-height]="'150'"
-              [bc-font-size]="'20'" [bc-text-position]="'button'" [bc-value]="show_bcode885" 
-              [bc-display-value]="true">
-            </ngx-barcode>
-            <div class="row" >
-              <div class="col-auto mr-auto" style="font-size: 20px">
-                <h3> &emsp; ราคา  
-                     &emsp; &emsp; &emsp; &emsp; 
-                     {{show_price}} บาท 
-                </h3>
-              </div>        
-              <div class="col-auto" style="font-size: 15px">
-                <h3> &emsp; รวม vat  
-                     &emsp; &emsp; &emsp; &emsp; &emsp;
-                     {{show_priceVat}} บาท
-                </h3>
-              </div>
-            </div>
+          <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Document</title>
+                <style>
+                
+                @page {
+                    size: auto;
+                    margin: 0;
+                }
+                @media print {
+                    html, body {
+                        width: 3cm;
+                        height: 1.8cm;  
+                    }
+
+                    .page {  
+                        margin: 0;
+                        border: initial;
+                        border-radius: initial;
+                        width: initial;
+                        min-height: initial;
+                        box-shadow: initial;
+                        background: initial;
+                    }
+                }
+                </style>
+            </head>
+            
+            <!--  -->
+            <body style="line-height: 8px; text-align: center; ">
+                <div class="page" style=" width: 190mm; height: 130mm;">
+                    <div style="   
+                        margin: 1mm;
+                        -webkit-column-count: 3; 
+                        -moz-column-count: 3; 
+                        border: 2px solid rgb(255, 255, 255);
+                        -webkit-column-rule: 2px solid rgb(255, 255, 255); 
+                        -moz-column-rule: 3px solid rgb(255, 255, 255)"
+                        > 
+                        <ngx-barcode [bc-element-type]="'svg'" [bc-format]="'EAN13'" [bc-width]="'1'" [bc-height]="'50'"
+                          [bc-font-size]="'8'" [bc-text-position]="'button'" [bc-value]="show_bcode885" 
+                          [bc-display-value]="true" 
+                          [bc-margin]="margin" [bc-margin-top]="marginTop" [bc-margin-bottom]="marginBottom" 
+                          [bc-margin-left]="marginLeft" [bc-margin-right]="marginRight">
+                        </ngx-barcode>
+                        <b style="font-size: 8px"> 
+                            &emsp; ราคา 
+                            &nbsp; &nbsp; &nbsp; &emsp; &emsp; {{show_price}} บาท 
+                            <br>
+                            &emsp; รวม vat 
+                            &nbsp; &nbsp; &nbsp; &emsp; {{show_priceVat}} บาท  
+                        </b>
+                  
+                  
+                        <div style="margin: 1em 0;">
+                          <ngx-barcode [bc-element-type]="'svg'" [bc-format]="'EAN13'" [bc-width]="'1'" [bc-height]="'50'"
+                            [bc-font-size]="'8'" [bc-text-position]="'button'" [bc-value]="show_bcode885" 
+                            [bc-display-value]="true" 
+                            [bc-margin]="margin" [bc-margin-top]="marginTop" [bc-margin-bottom]="marginBottom" 
+                            [bc-margin-left]="marginLeft" [bc-margin-right]="marginRight">
+                          </ngx-barcode>
+                          <b style="font-size: 8px"> 
+                              &emsp; ราคา 
+                              &nbsp; &nbsp; &nbsp; &emsp; &emsp; {{show_price}} บาท 
+                              <br>
+                              &emsp; รวม vat 
+                              &nbsp; &nbsp; &nbsp; &emsp; {{show_priceVat}} บาท  
+                          </b>
+                        </div>
+
+                        <div style="margin-top:1em"><b> </b></div>
+                    </div>
+
+                </div>
+
+                <!-- <script src="./node_modules/jsbarcode/dist/JsBarcode.all.min.js">
+                </script>
+
+                <script>
+                    JsBarcode("#barcode").options({font: "OCR-B"}) 
+                    .EAN13("1234567890128", {fontSize: 18, textMargin: 1,height: 45,width: 1.1})
+                    .render();
+                </script> -->
+            </body>
+        </html>
           </div>
   
         </div> 
@@ -120,3 +286,29 @@
   </div>
     
   
+
+
+  <!-- <ngx-barcode [bc-element-type]="'svg'" [bc-format]="EAN13" [bc-width]="'3'" [bc-height]="'150'"
+  [bc-font-size]="'20'" [bc-text-position]="'button'" [bc-value]="show_bcode885" 
+  [bc-display-value]="true">
+</ngx-barcode>
+<div class="row" >
+  <div class="col-auto mr-auto" style="font-size: 20px">
+    <h3> &emsp; &emsp; &emsp; ราคา  
+         &emsp; &emsp;
+         {{show_price}} บาท 
+    </h3>
+  </div>        
+  <div class="col-auto" style="font-size: 15px">
+    <h3> &emsp; &emsp; รวม vat  
+         &emsp; &emsp; &emsp; &emsp;
+         {{show_priceVat}} บาท
+    </h3>
+  </div>
+</div> -->
+
+
+
+<!-- UPDATE  ITEM_IMPORT_MASTER
+SET     QUANTITY_CHECK = QUANTITY_CHECK + 1
+WHERE   BARCODE_VENDER = '${fromdata.BCODE_VENDER}' -->

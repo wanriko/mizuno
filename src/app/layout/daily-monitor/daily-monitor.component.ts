@@ -280,12 +280,15 @@ export class DailyMonitorComponent implements OnInit {
       }else { this.dataJob.ItemLAZADA_Today = (this.dataJob.ITEM_FinToday / this.dataJob.ITEM_AllToday *100).toFixed(0) ; }
 
 
-
-
       }    
       else{ console.log('Error') }
     })
   }
+
+  // Detail_online(){
+  //   this.dataService.
+  // }
+
 
 
 }

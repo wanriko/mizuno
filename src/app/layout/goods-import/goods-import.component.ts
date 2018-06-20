@@ -21,6 +21,15 @@ export class GoodsImportComponent implements OnInit {
   input: any = {};
   barcode: any = {};
   priceee: any = {};
+  //////////////////////////////////////////////////////////
+
+  margin = 3;
+  marginTop = 0;
+  marginBottom = 0;
+  marginLeft = 0;
+  marginRight = 0; 
+  
+  //////////////////////////////////////////////////////
 
   private Page1 = false;
   private Page2 = true;
@@ -89,7 +98,8 @@ export class GoodsImportComponent implements OnInit {
                                     width: 100%;
                                     margin: 0;
                                     padding: 0;
-                                    border: 0;
+                                    border: 0;  
+                                                                   
                                   }
 
                                   #wrapper td {
@@ -107,8 +117,7 @@ export class GoodsImportComponent implements OnInit {
 
                             <table id="wrapper">
                               <tr>
-                                <td>  ${printContents} </td>
-                                <td> ${printContents} </td>
+                                <td> ${printContents} </td>                           
                               </tr>   
                             <br>                           
                             </table>                       
