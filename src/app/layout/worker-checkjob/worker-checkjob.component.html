@@ -1,48 +1,46 @@
-<div class="container-fluid">  
+<div class="container-fluid" style="line-height: 1px;">  
   <div class="page-header"> 
     <div class="row justify-content-start">  &nbsp;  &nbsp;   &nbsp;
-      <h2><b>CHECK BULK JOB</b></h2> 
-    </div>
-      <p class="category">&nbsp; ตรวจสอบ BULK JOB</p>                
-    </div>   
+      <h3><b>ตรวจสอบ BULK JOB</b></h3> 
+    </div>               
+  </div>   
 </div>    
 <hr> 
 
 <!-- ======== สแกน JOB NOMBER ======== -->
-  <div class="jumbotron"> 
-    <form ngNativeValidate (ngSubmit)="Check_BillWave()" [hidden] = "hiddenScanJOB_NO">    
-      <br>   
+  <div class="jumbotron" style="line-height: 8px;"> 
+    <form ngNativeValidate (ngSubmit)="Check_BillWave()" [hidden] = "hiddenScanJOB_NO">      
       <div class="row justify-content-md-center">          
         <div class="col-md-auto">
-          <h3> สแกนบาร์โค๊ด JOB NUMBER </h3>
+          <h4> สแกนบาร์โค๊ด JOB NUMBER </h4>
         </div>
-      </div>                                                 <br>
-
+      </div>                                             
+<br>
       <div [ngBusy]="busy" class="row justify-content-md-center">
-        <div class="col-md-5">
+        <div class="col-md-4">
           <div class="form-group">
-            <input #InputbarcodeJob type="text" name="barcodeJob" 
+            <input #InputbarcodeJob type="text" name="barcodeJob" aria-describedby="inputGroup-sizing-sm"
                     class="form-control" required minlength="8"  maxlength="15"
                     [(ngModel)]="barcode.WAVE">
           </div>
         </div>
       </div>
-<br>  <br>  
-      <div class="row justify-content-start">
-        <button type="button" class="btn btn-danger" (click)="goHome()">Close</button>
+<br>  
+      <div class="row justify-content-start">  &emsp;
+        <button type="button" class="btn btn-danger" (click)="goHome()">ปิด</button>
       </div>
     </form>         
     <!--  ======== สแกน BCODE_885_ITM  ======== -->
-    <form ngNativeValidate (ngSubmit)="Check_Bill_Item()" [hidden] ="hiddenScanITEM_ID">
+    <form ngNativeValidate (ngSubmit)="Check_Bill_Item()" [hidden] = "hiddenScanITEM_ID">
       <div class="row justify-content-md-center">          
         <div class="col-md-auto">
           <!-- <h2>WAVE ID : {{this.barcode.WAVE}}</h2><br> -->
-          <h3> สแกนบาร์โค๊ด ITEM ID</h3>
+          <h4> สแกนบาร์โค๊ด ITEM ID</h4>
         </div>
-      </div>                                                 <br>
-
+      </div>                                                 
+<br>
       <div [ngBusy]="busy" class="row justify-content-md-center">
-        <div class="col-md-5">
+        <div class="col-md-4">
           <div class="form-group">
             <input #InputbarcodeItem type="text" name="barcodeItem" 
                     class="form-control" required  minlength="13"  maxlength="15"
@@ -50,20 +48,20 @@
           </div>
         </div>
       </div>
-      <br>  <br>  
+<br>   
       <div class="row justify-content-start">
-        <button type="button" class="btn btn-warning" (click)="goScanWave()">Back</button>
+        <button type="button" class="btn btn-warning" (click)="goScanWave()">กลับ</button>
       </div>
-      <br>  <br>  
+<br>    
       <hr>  <br> 
       <div class="row justify-content-md-center">          
         <div class="col align-self-center">
-          <h4 class="text-center"> จำนวน SKU ทั้งหมด </h4>                   <br>
-          <h5 class="text-center"> {{show.countItem}} </h5>
+          <h5 class="text-center"> จำนวน SKU ทั้งหมด </h5>                   <br>
+          <h6 class="text-center"> {{show.countItem}} </h6>
         </div>
         <div class="col align-self-center">
-          <h4 class="text-center"> จำนวน SKU ที่ตรวจสอบไปแล้ว </h4>                      <br>
-          <h5 class="text-center"> {{show.countItemCheck}} </h5>
+          <h5 class="text-center"> จำนวน SKU ที่ตรวจสอบไปแล้ว </h5>                      <br>
+          <h6 class="text-center"> {{show.countItemCheck}} </h6>
         </div>
       </div>
     </form>  
@@ -72,25 +70,29 @@
 <!-- ========================IIIII แสดงข้อมูล IIIII======================== -->
 <form ngNativeValidate (ngSubmit)="Update_QtyEnd()"  [hidden] ="hiddenShowData"> 
   <div class="container-fluid"> 
-    <div class="row justify-content-md-center">          
+    <div class="row justify-content-md-center">       
       <div class="col align-self-center">
-        <h4 class="text-center"> JOB NOMBER </h4>                   <br>
-        <h5 class="text-center"> {{input.WAVE}} </h5>
+        <h5 class="text-center"> BILL NO </h5>                   <br>
+        <h6 class="text-center"> {{input.BILL_NO}} </h6>
+      </div>   
+      <div class="col align-self-center">
+        <h5 class="text-center"> JOB NOMBER </h5>                   <br>
+        <h6 class="text-center"> {{input.WAVE}} </h6>
       </div>
       <div class="col align-self-center">
-        <h4 class="text-center"> ITEM ID </h4>                      <br>
-        <h5 class="text-center"> {{input.ITEM_ID}} </h5>
+        <h5 class="text-center"> ITEM ID </h5>                      <br>
+        <h6 class="text-center"> {{input.ITEM_ID}} </h6>
       </div>
       <div class="col align-self-center">
-        <h4 class="text-center"> QTY </h4>                          <br>
-        <h5 class="text-center"> {{input.QTY}} </h5>
+        <h5 class="text-center"> QTY </h5>                          <br>
+        <h6 class="text-center"> {{input.QTY}} </h6>
       </div>
       <div [ngBusy]="busy" class="col align-self-center">
-        <h4 class="text-center"> QTY CHECK </h4>                    <br>
-        <h5 class="text-center">
+        <h5 class="text-center"> QTY CHECK </h5>                    <br>
+        <h6 class="text-center">
           <input #QTYcheck type="text" name="QTY_C" [(ngModel)]="barcode.QTY_CHK" 
                   class="text-center"  minlength="1"  maxlength="5" required> 
-        </h5>
+        </h6>
       </div>
     </div>   
   </div>                                              <br>

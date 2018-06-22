@@ -182,7 +182,8 @@ export class WorkerCheckjobComponent implements OnInit {
             {
               this.input.ITEM_ID = response.data[0].ITEM_ID;
               this.input.QTY = response.data[0].QTY;
-              this.input.QTY_CHECK= response.data[0].QTY_CHECK;
+              this.input.QTY_CHECK = response.data[0].QTY_CHECK;
+              this.input.BILL_NO = response.data[0].BILL_NO;
               this.input.WAVE= this.barcode.WAVE;
               this.busy = this.dataService.Upd_WorkerTCheck(this.input).subscribe(
                 response=>{

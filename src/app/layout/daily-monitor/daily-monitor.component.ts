@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
 export class DailyMonitorComponent implements OnInit {
 
   private dataJob : any={};
+  private dataOnline : any[];   // เอาไปใช้ใน ngFor
+  hidden_DataAll = false;
+  hidden_DataOnline = true;
 
   constructor(
     private dataService : DataService,  
@@ -38,73 +41,10 @@ export class DailyMonitorComponent implements OnInit {
   ////////////////////============================== notToday ==============================////////////////////
       ////////////// คำนวณเปอร์เซ็น PER ORDER /// notToday
       //////
-      this.dataJob.BillPer_a = (this.dataJob.Complete_BillPer / this.dataJob.All_BillPer *100).toFixed(0) //////
-      if ( this.dataJob.BillPer_a = Number.isNaN( this.dataJob.Complete_BillPer / this.dataJob.All_BillPer ) ){
-        this.dataJob.BillPer_a = 0 ;
-      }else { this.dataJob.BillPer_a = (this.dataJob.Complete_BillPer / this.dataJob.All_BillPer *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemPer_a = (this.dataJob.Complete_ItemPer / this.dataJob.All_ItemPer *100).toFixed(0) //////
-      if ( this.dataJob.ItemPer_a = Number.isNaN( this.dataJob.Complete_ItemPer / this.dataJob.All_ItemPer ) ){
-        this.dataJob.ItemPer_a = 0 ;
-      }else { this.dataJob.ItemPer_a = (this.dataJob.Complete_ItemPer / this.dataJob.All_ItemPer *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtyPer_a = (this.dataJob.Complete_QtyPer / this.dataJob.All_QtyPer *100).toFixed(0) //////
-      if ( this.dataJob.QtyPer_a = Number.isNaN( this.dataJob.Complete_QtyPer / this.dataJob.All_QtyPer ) ){
-        this.dataJob.QtyPer_a = 0 ;
-      }else { this.dataJob.QtyPer_a = (this.dataJob.Complete_QtyPer / this.dataJob.All_QtyPer *100).toFixed(0) ; }
-
-      ////////////// คำนวณเปอร์เซ็น CASHSALE /// notToday
-      //////
-      this.dataJob.BillCash_a = (this.dataJob.Complete_BillCash / this.dataJob.All_BillCash *100).toFixed(0) //////
-      if ( this.dataJob.BillCash_a = Number.isNaN( this.dataJob.Complete_BillCash / this.dataJob.All_BillCash ) ){
-        this.dataJob.BillCash_a = 0 ;
-      }else { this.dataJob.BillCash_a = (this.dataJob.Complete_BillCash / this.dataJob.All_BillCash *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemCash_a = (this.dataJob.Complete_ItemCash / this.dataJob.All_ItemCash *100).toFixed(0) //////
-      if ( this.dataJob.ItemCash_a = Number.isNaN( this.dataJob.Complete_ItemCash / this.dataJob.All_ItemCash ) ){
-        this.dataJob.ItemCash_a = 0 ;
-      }else { this.dataJob.ItemCash_a = (this.dataJob.Complete_ItemCash / this.dataJob.All_ItemCash *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtyCash_a = (this.dataJob.Complete_QtyCash / this.dataJob.All_QtyCash *100).toFixed(0) //////
-      if ( this.dataJob.QtyCash_a = Number.isNaN( this.dataJob.Complete_QtyCash / this.dataJob.All_QtyCash ) ){
-        this.dataJob.QtyCash_a = 0 ;
-      }else { this.dataJob.QtyCash_a = (this.dataJob.Complete_QtyCash / this.dataJob.All_QtyCash *100).toFixed(0) ; }
-
-      ////////////// คำนวณเปอร์เซ็น Sorter /// notToday
-      //////
-      this.dataJob.ItemSort_a = (this.dataJob.Complete_ItemSort / this.dataJob.All_ItemSort *100).toFixed(0) //////
-      if ( this.dataJob.ItemSort_a = Number.isNaN( this.dataJob.Complete_ItemSort / this.dataJob.All_ItemSort ) ){
-        this.dataJob.ItemSort_a = 0 ;
-      }else { this.dataJob.ItemSort_a = (this.dataJob.Complete_ItemSort / this.dataJob.All_ItemSort *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtySort_a = (this.dataJob.Complete_QtySort / this.dataJob.All_QtySort *100).toFixed(0) //////
-      if ( this.dataJob.QtySort_a = Number.isNaN( this.dataJob.Complete_QtySort / this.dataJob.All_QtySort ) ){
-        this.dataJob.QtySort_a = 0 ;
-      }else { this.dataJob.QtySort_a = (this.dataJob.Complete_QtySort / this.dataJob.All_QtySort *100).toFixed(0) ; }
-
-      ////////////// คำนวณเปอร์เซ็น WAVE CONSOLIDATE /// notToday
-      //////
-      this.dataJob.BillConsol_a = (this.dataJob.Complete_BillConsol / this.dataJob.All_BillConsol *100).toFixed(0) //////
-      if ( this.dataJob.BillConsol_a = Number.isNaN( this.dataJob.Complete_BillConsol / this.dataJob.All_BillConsol ) ){
-        this.dataJob.BillConsol_a = 0 ;
-      }else { this.dataJob.BillConsol_a = (this.dataJob.Complete_BillConsol / this.dataJob.All_BillConsol *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemConsol_a = (this.dataJob.Complete_ItemConsol / this.dataJob.All_ItemConsol *100).toFixed(0) //////
-      if ( this.dataJob.ItemConsol_a = Number.isNaN( this.dataJob.Complete_ItemConsol / this.dataJob.All_ItemConsol ) ){
-        this.dataJob.ItemConsol_a = 0 ;
-      }else { this.dataJob.ItemConsol_a = (this.dataJob.Complete_ItemConsol / this.dataJob.All_ItemConsol *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtyConsol_a = (this.dataJob.Complete_QtyConsol / this.dataJob.All_QtyConsol *100).toFixed(0) //////
-      if ( this.dataJob.QtyConsol_a = Number.isNaN( this.dataJob.Complete_QtyConsol / this.dataJob.All_QtyConsol ) ){
-        this.dataJob.QtyConsol_a = 0 ;
-      }else { this.dataJob.QtyConsol_a = (this.dataJob.Complete_QtyConsol / this.dataJob.All_QtyConsol *100).toFixed(0) ; }
+      // this.dataJob.BillPer_a = (this.dataJob.Complete_BillPer / this.dataJob.All_BillPer *100).toFixed(0) //////
+      // if ( this.dataJob.BillPer_a = Number.isNaN( this.dataJob.Complete_BillPer / this.dataJob.All_BillPer ) ){
+      //   this.dataJob.BillPer_a = 0 ;
+      // }else { this.dataJob.BillPer_a = (this.dataJob.Complete_BillPer / this.dataJob.All_BillPer *100).toFixed(0) ; }
 
       ////////////// คำนวณเปอร์เซ็น TOTAL /// notToday
       //////TOTAL BILL
@@ -144,73 +84,10 @@ export class DailyMonitorComponent implements OnInit {
       ////////////////////,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, Today ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,////////////////////
       ////////////// คำนวณเปอร์เซ็น PER ORDER /// Today
       //////
-      this.dataJob.BillPer_b = (this.dataJob.CComplete_BillPer / this.dataJob.AAll_BillPer *100).toFixed(0) //////
-      if ( this.dataJob.BillPer_b = Number.isNaN( this.dataJob.CComplete_BillPer / this.dataJob.AAll_BillPer ) ){
-        this.dataJob.BillPer_b = 0 ;
-      }else { this.dataJob.BillPer_b = (this.dataJob.CComplete_BillPer / this.dataJob.AAll_BillPer *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemPer_b = (this.dataJob.CComplete_ItemPer / this.dataJob.AAll_ItemPer *100).toFixed(0) //////
-      if ( this.dataJob.ItemPer_b = Number.isNaN( this.dataJob.CComplete_ItemPer / this.dataJob.AAll_ItemPer ) ){
-        this.dataJob.ItemPer_b = 0 ;
-      }else { this.dataJob.ItemPer_b = (this.dataJob.CComplete_ItemPer / this.dataJob.AAll_ItemPer *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtyPer_b = (this.dataJob.CComplete_QtyPer / this.dataJob.AAll_QtyPer *100).toFixed(0) //////
-      if ( this.dataJob.QtyPer_b = Number.isNaN( this.dataJob.CComplete_QtyPer / this.dataJob.AAll_QtyPer ) ){
-        this.dataJob.QtyPer_b = 0 ;
-      }else { this.dataJob.QtyPer_b = (this.dataJob.CComplete_QtyPer / this.dataJob.AAll_QtyPer *100).toFixed(0) ; }
-
-      ////////////// คำนวณเปอร์เซ็น CASHSALE /// Today
-      //////
-      this.dataJob.BillCash_b = (this.dataJob.CComplete_BillCash / this.dataJob.AAll_BillCash *100).toFixed(0) //////
-      if ( this.dataJob.BillCash_b = Number.isNaN( this.dataJob.CComplete_BillCash / this.dataJob.AAll_BillCash ) ){
-        this.dataJob.BillCash_b = 0 ;
-      }else { this.dataJob.BillCash_b = (this.dataJob.CComplete_BillCash / this.dataJob.AAll_BillCash *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemCash_b = (this.dataJob.CComplete_ItemCash / this.dataJob.AAll_ItemCash *100).toFixed(0) //////
-      if ( this.dataJob.ItemCash_b = Number.isNaN( this.dataJob.CComplete_ItemCash / this.dataJob.AAll_ItemCash ) ){
-        this.dataJob.ItemCash_b = 0 ;
-      }else { this.dataJob.ItemCash_b = (this.dataJob.CComplete_ItemCash / this.dataJob.AAll_ItemCash *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtyCash_b = (this.dataJob.CComplete_QtyCash / this.dataJob.AAll_QtyCash *100).toFixed(0) //////
-      if ( this.dataJob.QtyCash_b = Number.isNaN( this.dataJob.CComplete_QtyCash / this.dataJob.AAll_QtyCash ) ){
-        this.dataJob.QtyCash_b = 0 ;
-      }else { this.dataJob.QtyCash_b = (this.dataJob.CComplete_QtyCash / this.dataJob.AAll_QtyCash *100).toFixed(0) ; }
-
-      ////////////// คำนวณเปอร์เซ็น Sorter /// Today
-      //////
-      this.dataJob.ItemSort_b = (this.dataJob.CComplete_ItemSort / this.dataJob.AAll_ItemSort *100).toFixed(0) //////
-      if ( this.dataJob.ItemSort_b = Number.isNaN( this.dataJob.CComplete_ItemSort / this.dataJob.AAll_ItemSort ) ){
-        this.dataJob.ItemSort_b = 0 ;
-      }else { this.dataJob.ItemSort_b = (this.dataJob.CComplete_ItemSort / this.dataJob.AAll_ItemSort *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtySort_b = (this.dataJob.CComplete_QtySort / this.dataJob.AAll_QtySort *100).toFixed(0) //////
-      if ( this.dataJob.QtySort_b = Number.isNaN( this.dataJob.CComplete_QtySort / this.dataJob.AAll_QtySort ) ){
-        this.dataJob.QtySort_b = 0 ;
-      }else { this.dataJob.QtySort_b = (this.dataJob.CComplete_QtySort / this.dataJob.AAll_QtySort *100).toFixed(0) ; }
-
-      ////////////// คำนวณเปอร์เซ็น WAVE CONSOLIDATE /// Today
-      //////
-      this.dataJob.BillConsol_b = (this.dataJob.CComplete_BillConsol / this.dataJob.AAll_BillConsol *100).toFixed(0) //////
-      if ( this.dataJob.BillConsol_b = Number.isNaN( this.dataJob.CComplete_BillConsol / this.dataJob.AAll_BillConsol ) ){
-        this.dataJob.BillConsol_b = 0 ;
-      }else { this.dataJob.BillConsol_b = (this.dataJob.CComplete_BillConsol / this.dataJob.AAll_BillConsol *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemConsol_b = (this.dataJob.CComplete_ItemConsol / this.dataJob.AAll_ItemConsol *100).toFixed(0) //////
-      if ( this.dataJob.ItemConsol_b = Number.isNaN( this.dataJob.CComplete_ItemConsol / this.dataJob.AAll_ItemConsol ) ){
-        this.dataJob.ItemConsol_b = 0 ;
-      }else { this.dataJob.ItemConsol_b = (this.dataJob.CComplete_ItemConsol / this.dataJob.AAll_ItemConsol *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.QtyConsol_b = (this.dataJob.CComplete_QtyConsol / this.dataJob.AAll_QtyConsol *100).toFixed(0) //////
-      if ( this.dataJob.QtyConsol_b = Number.isNaN( this.dataJob.CComplete_QtyConsol / this.dataJob.AAll_QtyConsol ) ){
-        this.dataJob.QtyConsol_b = 0 ;
-      }else { this.dataJob.QtyConsol_b = (this.dataJob.CComplete_QtyConsol / this.dataJob.AAll_QtyConsol *100).toFixed(0) ; }
+      // this.dataJob.BillPer_b = (this.dataJob.CComplete_BillPer / this.dataJob.AAll_BillPer *100).toFixed(0) //////
+      // if ( this.dataJob.BillPer_b = Number.isNaN( this.dataJob.CComplete_BillPer / this.dataJob.AAll_BillPer ) ){
+      //   this.dataJob.BillPer_b = 0 ;
+      // }else { this.dataJob.BillPer_b = (this.dataJob.CComplete_BillPer / this.dataJob.AAll_BillPer *100).toFixed(0) ; }
 
       ////////////// คำนวณเปอร์เซ็น TOTAL /// Today
       ////// TOTAL BILL
@@ -249,45 +126,41 @@ export class DailyMonitorComponent implements OnInit {
       this.dataJob.QTY_Today = 0 ;
       }else { this.dataJob.QTY_Today = (this.dataJob.TTotalQTY_Today / this.dataJob.TotalQTY_Today *100).toFixed(0) ; }
       
-
-
-      ////////////////////*x*x*x*x*x*x*x*x*x*x*x*x*x*x*x* ONLINE *x*x*x*x*x*x*x*x*x*x*x*x*x*x*x*////////////////////
-      ////////////// คำนวณเปอร์เซ็น LAZADA /// not Today
-      ////
-      this.dataJob.PO_LAZADA = (this.dataJob.PO_FinnotToday / this.dataJob.PO_AllnotToday *100).toFixed(0) //////
-      if ( this.dataJob.PO_LAZADA = Number.isNaN( this.dataJob.PO_FinnotToday / this.dataJob.PO_AllnotToday ) ){
-        this.dataJob.PO_LAZADA = 0 ;
-      }else { this.dataJob.PO_LAZADA = (this.dataJob.PO_FinnotToday / this.dataJob.PO_AllnotToday *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemLAZADA = (this.dataJob.ITEM_FinnotToday / this.dataJob.ITEM_AllnotToday *100).toFixed(0) //////
-      if ( this.dataJob.ItemLAZADA = Number.isNaN( this.dataJob.ITEM_FinnotToday / this.dataJob.ITEM_AllnotToday ) ){
-        this.dataJob.ItemLAZADA = 0 ;
-      }else { this.dataJob.ItemLAZADA = (this.dataJob.ITEM_FinnotToday / this.dataJob.ITEM_AllnotToday *100).toFixed(0) ; }
-
-
-      ////////////// คำนวณเปอร์เซ็น LAZADA /// Today
-      //// 
-      this.dataJob.PO_LAZADA_Today = (this.dataJob.PO_FinToday / this.dataJob.PO_AllToday *100).toFixed(0) //////
-      if ( this.dataJob.PO_LAZADA_Today = Number.isNaN( this.dataJob.PO_FinToday / this.dataJob.PO_AllToday ) ){
-        this.dataJob.PO_LAZADA_Today = 0 ;
-      }else { this.dataJob.PO_LAZADA_Today = (this.dataJob.PO_FinToday / this.dataJob.PO_AllToday *100).toFixed(0) ; }
-
-      //////
-      this.dataJob.ItemLAZADA_Today = (this.dataJob.ITEM_FinToday / this.dataJob.ITEM_AllToday *100).toFixed(0) //////
-      if ( this.dataJob.ItemLAZADA_Today = Number.isNaN( this.dataJob.ITEM_FinToday / this.dataJob.ITEM_AllToday ) ){
-        this.dataJob.ItemLAZADA_Today = 0 ;
-      }else { this.dataJob.ItemLAZADA_Today = (this.dataJob.ITEM_FinToday / this.dataJob.ITEM_AllToday *100).toFixed(0) ; }
-
-
       }    
       else{ console.log('Error') }
     })
   }
 
-  // Detail_online(){
-  //   this.dataService.
-  // }
+    calculatePercent(current:number, total:number)
+    {
+      if (total == 0) return total
+      if (!total) return total = 0
+        return ((current/total)*100).toFixed(0)
+    }
+
+    Detail_online(){
+      this.dataService.Service_dataOnline().subscribe(response => { 
+        if(response.status)
+        { 
+          this.hidden_DataOnline = false;
+          this.hidden_DataAll = true;
+          this.dataOnline = response.data;
+          console.log( this.dataOnline )
+        }    
+        else{ console.log('Error') }  
+      });
+    }
+
+    BACK(){
+      this.hidden_DataOnline = true;
+      this.hidden_DataAll = false;
+    }
+  
+  
+  
+  
+  
+  
 
 
 

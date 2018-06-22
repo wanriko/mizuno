@@ -1,4 +1,4 @@
-<div class="container-fluid"  style="line-height: 16px; letter-spacing:0pt">
+<div class="container-fluid"  style="line-height: 16px; letter-spacing:0pt" [hidden]="hidden_DataAll">
   <div class="row">   
     <div class="col">  
     <!-- ''''''''''''''''''''''''''''' ตารางข้อมูลงานค้างงงง '''''''''''''''''''''''''''''-->
@@ -28,26 +28,25 @@
                 <th class="text-center"> COMPLETE % </th>
               </tr>
             </thead>
-          
             <tbody style="font-size: 14px;"> 
               <tr>     
                 <th class="text-center" rowspan="3"> <br><br> PER ORDER</th>       
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.All_BillPer}} </th>
                 <th class="text-right"> {{dataJob.Complete_BillPer}} </th>
-                <th class="text-right"> {{dataJob.BillPer_a}} %</th>
-              </tr>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_BillPer, dataJob.All_BillPer) }} % </th>
+              </tr>   
               <tr>               
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.All_ItemPer}} </th>
                 <th class="text-right"> {{dataJob.Complete_ItemPer}} </th>
-                <th class="text-right"> {{dataJob.ItemPer_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_ItemPer, dataJob.All_ItemPer) }} % </th>
               </tr>
               <tr>
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.All_QtyPer}} </th>
                 <th class="text-right"> {{dataJob.Complete_QtyPer}} </th>
-                <th class="text-right"> {{dataJob.QtyPer_a}}  %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_QtyPer, dataJob.All_QtyPer) }} % </th>
               </tr>
   
               <tr>     
@@ -55,19 +54,19 @@
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.All_BillCash}} </th>
                 <th class="text-right"> {{dataJob.Complete_BillCash}} </th>
-                <th class="text-right"> {{dataJob.BillCash_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_BillCash, dataJob.All_BillCash) }} % </th>
               </tr>
               <tr>               
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.All_ItemCash}} </th>
                 <th class="text-right"> {{dataJob.Complete_ItemCash}} </th>
-                <th class="text-right"> {{dataJob.ItemCash_a }} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_ItemCash, dataJob.All_ItemCash) }} % </th>
               </tr>
               <tr>
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.All_QtyCash}} </th>
                 <th class="text-right"> {{dataJob.Complete_QtyCash}} </th>
-                <th class="text-right"> {{dataJob.QtyCash_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_QtyCash, dataJob.All_QtyCash) }} % </th>
               </tr>
   
               <tr>     
@@ -75,13 +74,13 @@
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.All_ItemSort}} </th>
                 <th class="text-right"> {{dataJob.Complete_ItemSort}} </th>
-                <th class="text-right"> {{dataJob.ItemSort_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_ItemSort, dataJob.All_ItemSort) }} % </th>
               </tr>
               <tr>               
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.All_QtySort}} </th>
                 <th class="text-right"> {{dataJob.Complete_QtySort}} </th>
-                <th class="text-right"> {{dataJob.QtySort_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_QtySort, dataJob.All_QtySort) }} % </th>
               </tr>
   
               <tr>     
@@ -89,37 +88,37 @@
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.All_BillConsol}} </th>
                 <th class="text-right"> {{dataJob.Complete_BillConsol}} </th>
-                <th class="text-right"> {{dataJob.BillConsol_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_BillConsol, dataJob.All_BillConsol) }} % </th>
               </tr>
               <tr>               
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.All_ItemConsol}} </th>
                 <th class="text-right"> {{dataJob.Complete_ItemConsol}} </th>
-                <th class="text-right"> {{dataJob.ItemConsol_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_ItemConsol , dataJob.All_ItemConsol ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.All_QtyConsol}} </th>
                 <th class="text-right"> {{dataJob.Complete_QtyConsol}} </th>
-                <th class="text-right"> {{dataJob.QtyConsol_a}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.Complete_QtyConsol , dataJob.All_QtyConsol ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center" colspan="2" style="color: rgb(145, 119, 5); "> TOTAL BILL : </th>
                 <th class="text-right"> {{dataJob.TotalBILL_notToday}} </th>
                 <th class="text-right"> {{dataJob.TTotalBILL_notToday}} </th>
-                <th class="text-right"> {{dataJob.BILL_notToday}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.TTotalBILL_notToday , dataJob.TotalBILL_notToday ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center" colspan="2" style="color: rgb(145, 119, 5); "> TOTAL SKU : </th>
                 <th class="text-right"> {{dataJob.TotalSKU_notToday}} </th>
                 <th class="text-right"> {{dataJob.TTotalSKU_notToday}} </th>
-                <th class="text-right"> {{dataJob.SKU_notToday}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.TTotalSKU_notToday , dataJob.TotalSKU_notToday ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center" colspan="2" style="color: rgb(145, 119, 5); "> TOTAL QUANTITY : </th>
                 <th class="text-right"> {{dataJob.TotalQTY_notToday}} </th>
                 <th class="text-right"> {{dataJob.TTotalQTY_notToday}} </th>
-                <th class="text-right"> {{dataJob.QTY_notToday}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.TTotalQTY_notToday , dataJob.TotalQTY_notToday ) }} % </th>
               </tr>
             </tbody>
           </table>
@@ -165,19 +164,19 @@
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.AAll_BillPer}} </th>
                 <th class="text-right"> {{dataJob.CComplete_BillPer}} </th>
-                <th class="text-right"> {{dataJob.BillPer_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_BillPer , dataJob.AAll_BillPer ) }} % </th>
               </tr>
               <tr>               
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.AAll_ItemPer}} </th>
                 <th class="text-right"> {{dataJob.CComplete_ItemPer}} </th>
-                <th class="text-right"> {{dataJob.ItemPer_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_ItemPer , dataJob.AAll_ItemPer ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.AAll_QtyPer}} </th>
                 <th class="text-right"> {{dataJob.CComplete_QtyPer}} </th>
-                <th class="text-right"> {{dataJob.QtyPer_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_QtyPer , dataJob.AAll_QtyPer ) }} % </th>
               </tr>
 
               <tr>     
@@ -185,19 +184,19 @@
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.AAll_BillCash}} </th>
                 <th class="text-right"> {{dataJob.CComplete_BillCash}} </th>
-                <th class="text-right"> {{dataJob.BillCash_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_BillCash,dataJob.AAll_BillCash) }} %</th>
               </tr>
               <tr>               
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.AAll_ItemCash}} </th>
                 <th class="text-right"> {{dataJob.CComplete_ItemCash}} </th>
-                <th class="text-right"> {{dataJob.ItemCash_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_ItemCash , dataJob.AAll_ItemCash ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.AAll_QtyCash}} </th>
                 <th class="text-right"> {{dataJob.CComplete_QtyCash}} </th>
-                <th class="text-right"> {{dataJob.QtyCash_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_QtyCash , dataJob.AAll_QtyCash ) }} % </th>
               </tr>
 
               <tr>     
@@ -205,13 +204,13 @@
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.AAll_ItemSort}}  </th>
                 <th class="text-right"> {{dataJob.CComplete_ItemSort}} </th>
-                <th class="text-right"> {{dataJob.ItemSort_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_ItemSort , dataJob.AAll_ItemSort ) }} % </th>
               </tr>
               <tr>               
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.AAll_QtySort}} </th>
                 <th class="text-right"> {{dataJob.CComplete_QtySort}} </th>
-                <th class="text-right"> {{dataJob.QtySort_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_QtySort , dataJob.AAll_QtySort ) }} % </th>
               </tr>
 
               <tr>     
@@ -219,37 +218,37 @@
                 <th class="text-center"> BILL  </th>
                 <th class="text-right"> {{dataJob.AAll_BillConsol}}  </th>
                 <th class="text-right"> {{dataJob.CComplete_BillConsol}} </th>
-                <th class="text-right"> {{dataJob.BillConsol_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_BillConsol , dataJob.AAll_BillConsol ) }} % </th>
               </tr>
               <tr>               
                 <th class="text-center"> SKU </th>
                 <th class="text-right"> {{dataJob.AAll_ItemConsol}} </th>
                 <th class="text-right"> {{dataJob.CComplete_ItemConsol}} </th>
-                <th class="text-right"> {{dataJob.ItemConsol_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_ItemConsol , dataJob.AAll_ItemConsol ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center"> QUANTITY </th>
                 <th class="text-right"> {{dataJob.AAll_QtyConsol}} </th>
                 <th class="text-right"> {{dataJob.CComplete_QtyConsol}} </th>
-                <th class="text-right"> {{dataJob.QtyConsol_b}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.CComplete_QtyConsol , dataJob.AAll_QtyConsol ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center" colspan="2" style="color: rgb(12, 145, 52);"> TOTAL BILL : </th>
                 <th class="text-right"> {{dataJob.TotalBILL_Today}} </th>
                 <th class="text-right"> {{dataJob.TTotalBILL_Today}} </th>
-                <th class="text-right"> {{dataJob.BILL_Today}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.TTotalBILL_Today , dataJob.TotalBILL_Today ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center" colspan="2" style="color: rgb(12, 145, 52);"> TOTAL SKU : </th>
                 <th class="text-right"> {{dataJob.TotalSKU_Today}} </th>
                 <th class="text-right"> {{dataJob.TTotalSKU_Today}} </th>
-                <th class="text-right"> {{dataJob.SKU_Today}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.TTotalSKU_Today , dataJob.TotalSKU_Today ) }} % </th>
               </tr>
               <tr>
                 <th class="text-center" colspan="2" style="color: rgb(12, 145, 52);"> TOTAL QUANTITY : </th>
                 <th class="text-right"> {{dataJob.TotalQTY_Today}} </th>
                 <th class="text-right"> {{dataJob.TTotalQTY_Today}} </th>
-                <th class="text-right"> {{dataJob.QTY_Today}} %</th>
+                <th class="text-right"> {{ calculatePercent(dataJob.TTotalQTY_Today , dataJob.TotalQTY_Today ) }} % </th>
               </tr>
             </tbody>
           </table>
@@ -268,7 +267,7 @@
               <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42); padding: 5px;">
                 <b> &nbsp; ตารางข้อมูลงาน Online  </b>
               </div>
-              <div class="col-auto">
+              <div class="col-auto" (click) = "Detail_online()">
                 <button type="button" class="btn btn-info btn-sm"> รายละเอียด </button>
               </div>
             </div>
@@ -287,33 +286,44 @@
 
               <tbody style="font-size: 14px;"> 
                 <tr>     
-                  <th class="text-center" rowspan="2"> <br><br>LAZADA</th>       
+                  <th class="text-center" rowspan="3"> <br><br>LAZADA</th>       
                   <th class="text-center"> BILL </th>
                   <th class="text-right"> {{dataJob.PO_AllnotToday}} </th>
                   <th class="text-right"> {{dataJob.PO_FinnotToday}} </th>
-                  <th class="text-right"> {{dataJob.PO_LAZADA}} %</th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.PO_FinnotToday , dataJob.PO_AllnotToday ) }} % </th>
                 </tr>
                 <tr>               
                   <th class="text-center"> SKU </th>
                   <th class="text-right"> {{dataJob.ITEM_AllnotToday}} </th>
                   <th class="text-right"> {{dataJob.ITEM_FinnotToday}} </th>
-                  <th class="text-right"> {{dataJob.ItemLAZADA}} %</th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.ITEM_FinnotToday , dataJob.ITEM_AllnotToday ) }} % </th>
+                </tr>
+                <tr>               
+                  <th class="text-center"> QUANTITY </th>
+                  <th class="text-right"> {{dataJob.QTY_AllnotToday}} </th>
+                  <th class="text-right"> {{dataJob.QTY_FinnotToday}} </th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.QTY_FinnotToday , dataJob.QTY_AllnotToday ) }} % </th>
                 </tr>
 
                 <tr>     
-                  <th class="text-center" rowspan="2"> <br><br> LAZADA  {{Datenow}}</th>       
+                  <th class="text-center" rowspan="3"> <br><br> LAZADA  {{Datenow}}</th>       
                   <th class="text-center"> BILL  </th>
                   <th class="text-right"> {{dataJob.PO_AllToday}} </th>
                   <th class="text-right"> {{dataJob.PO_FinToday}} </th>
-                  <th class="text-right"> {{dataJob.PO_LAZADA_Today}} %</th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.PO_FinToday , dataJob.PO_AllToday ) }} % </th>
                 </tr>
                 <tr>               
                   <th class="text-center"> SKU </th>
                   <th class="text-right"> {{dataJob.ITEM_AllToday}} </th>
                   <th class="text-right"> {{dataJob.ITEM_FinToday}} </th>
-                  <th class="text-right"> {{dataJob.ItemLAZADA_Today}} %</th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.ITEM_FinToday , dataJob.ITEM_AllToday ) }} % </th>
                 </tr>
-
+                <tr>               
+                  <th class="text-center"> QUANTITY </th>
+                  <th class="text-right"> {{dataJob.QTY_AllToday}} </th>
+                  <th class="text-right"> {{dataJob.QTY_FinToday}} </th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.QTY_FinToday , dataJob.QTY_AllToday ) }} % </th>
+                </tr>
               </tbody>
             </table>
           <!-- </div>  -->
@@ -324,10 +334,46 @@
 
     
   </div>
-</div>      <br><br><br><br>  
-  
+</div>          
 
-  
+
+<div class="container" style="word-spacing: 1pt" [hidden]="hidden_DataOnline">   
+    <div class="card-header">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42); padding: 5px;">
+            <b> &nbsp; ตารางข้อมูลงาน Online  </b>
+          </div>
+          <div class="col-auto" (click) = "BACK()">
+            <button type="button" class="btn btn-warning btn-sm"> กลับ </button>
+          </div>
+        </div>
+      </div> 
+  <div class="container scrollit">
+    <table class="table table-bordered table-sm table-hover">
+      <thead>
+        <tr>
+          <th class="text-center"><b>PO NO</b></th>
+          <th class="text-center"><b>BILL NO</b></th>
+          <th class="text-center"><b>BILL DATE</b></th>
+          <th class="text-center"><b>END JOB</b></th>
+          <th class="text-center"><b>ITEM ID</b></th>
+          <th class="text-center"><b>QUANTITY</b></th>
+        </tr> 
+      </thead>
+      <tbody> 
+        <tr *ngFor = 'let data of dataOnline; trackBy:index; let i = index;'> 
+          <td class="text-left">{{data.PO_NO}}</td>
+          <td class="text-left">{{data.BILL_NO}}</td>
+          <td class="text-left">{{data.BILL_DATE}}</td>
+          <td class="text-left">{{data.END_JOB_TIME}}</td>
+          <td class="text-left">{{data.ITEM_ID}}</td>
+          <td class="text-left">{{data.FULL_QTY}}</td>
+        </tr>
+      </tbody> 
+    </table>                                    
+  </div>                          
+</div>
+
  
 <!-- SKU
 QTY

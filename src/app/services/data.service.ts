@@ -180,8 +180,13 @@ export class DataService {
 
 ///////////////////////////////////////////////////////////////////////////
 /////////////////////////////////api_DailyMonitor
- Service_DailyMonitor(){
+Service_DailyMonitor(){
   return this.http.post('http://localhost:1234/api/api_DailyMonitor',[])
+  .map(res => res.json());
+}
+
+Service_dataOnline(){
+  return this.http.post('http://localhost:1234/api/data_OnlineJob',[])
   .map(res => res.json());
 }
 
