@@ -337,7 +337,7 @@
 </div>          
 
 
-<div class="container" style="word-spacing: 1pt" [hidden]="hidden_DataOnline">   
+<div class="container scrollit" style="word-spacing: 1pt" [hidden]="hidden_DataOnline">   
     <div class="card-header">
         <div class="row justify-content-between align-items-center">
           <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42); padding: 5px;">
@@ -348,7 +348,6 @@
           </div>
         </div>
       </div> 
-  <div class="container scrollit">
     <table class="table table-bordered table-sm table-hover">
       <thead>
         <tr>
@@ -367,11 +366,10 @@
           <td class="text-left">{{data.BILL_DATE}}</td>
           <td class="text-left">{{data.END_JOB_TIME}}</td>
           <td class="text-left">{{data.ITEM_ID}}</td>
-          <td class="text-left">{{data.FULL_QTY}}</td>
+          <td class="text-center">{{data.FULL_QTY}} &nbsp; pieces </td>
         </tr>
       </tbody> 
-    </table>                                    
-  </div>                          
+    </table>                                                           
 </div>
 
  
