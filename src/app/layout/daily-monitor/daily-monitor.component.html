@@ -288,24 +288,24 @@
                 <tr>     
                   <th class="text-center" rowspan="3"> <br><br>LAZADA</th>       
                   <th class="text-center"> BILL </th>
-                  <th class="text-right"> {{dataJob.PO_AllnotToday}} </th>
-                  <th class="text-right"> {{dataJob.PO_FinnotToday}} </th>
-                  <th class="text-right"> {{ calculatePercent(dataJob.PO_FinnotToday , dataJob.PO_AllnotToday ) }} % </th>
+                  <th class="text-right"> {{dataJob.PO_All}} </th>
+                  <th class="text-right"> {{dataJob.PO_Fin}} </th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.PO_Fin, dataJob.PO_All ) }} % </th>
                 </tr>
                 <tr>               
                   <th class="text-center"> SKU </th>
-                  <th class="text-right"> {{dataJob.ITEM_AllnotToday}} </th>
-                  <th class="text-right"> {{dataJob.ITEM_FinnotToday}} </th>
-                  <th class="text-right"> {{ calculatePercent(dataJob.ITEM_FinnotToday , dataJob.ITEM_AllnotToday ) }} % </th>
+                  <th class="text-right"> {{dataJob.ITEM_All}} </th>
+                  <th class="text-right"> {{dataJob.ITEM_Fin}} </th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.ITEM_Fin, dataJob.ITEM_All ) }} % </th>
                 </tr>
                 <tr>               
                   <th class="text-center"> QUANTITY </th>
-                  <th class="text-right"> {{dataJob.QTY_AllnotToday}} </th>
-                  <th class="text-right"> {{dataJob.QTY_FinnotToday}} </th>
-                  <th class="text-right"> {{ calculatePercent(dataJob.QTY_FinnotToday , dataJob.QTY_AllnotToday ) }} % </th>
+                  <th class="text-right"> {{dataJob.QTY_All}} </th>
+                  <th class="text-right"> {{dataJob.QTY_Fin}} </th>
+                  <th class="text-right"> {{ calculatePercent(dataJob.QTY_Fin, dataJob.QTY_All ) }} % </th>
                 </tr>
 
-                <tr>     
+                <!-- <tr>     
                   <th class="text-center" rowspan="3"> <br><br> LAZADA  {{Datenow}}</th>       
                   <th class="text-center"> BILL  </th>
                   <th class="text-right"> {{dataJob.PO_AllToday}} </th>
@@ -323,7 +323,7 @@
                   <th class="text-right"> {{dataJob.QTY_AllToday}} </th>
                   <th class="text-right"> {{dataJob.QTY_FinToday}} </th>
                   <th class="text-right"> {{ calculatePercent(dataJob.QTY_FinToday , dataJob.QTY_AllToday ) }} % </th>
-                </tr>
+                </tr> -->
               </tbody>
             </table>
           <!-- </div>  -->
@@ -336,8 +336,8 @@
   </div>
 </div>          
 
-
-<div class="container scrollit" style="word-spacing: 1pt" [hidden]="hidden_DataOnline">   
+<!-- style=" border-bottom:5px; position:fixed; " -->
+<div class="container" style="word-spacing: 1pt; line-height: 22px;" [hidden]="hidden_DataOnline">   
     <div class="card-header">
         <div class="row justify-content-between align-items-center">
           <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42); padding: 5px;">
@@ -347,10 +347,11 @@
             <button type="button" class="btn btn-warning btn-sm"> กลับ </button>
           </div>
         </div>
-      </div> 
-    <table class="table table-bordered table-sm table-hover">
+      </div>
+  <div class="scrollit"> 
+    <table class="table table-bordered table-hover" >
       <thead>
-        <tr>
+        <tr style=" position:relative; top: expression">
           <th class="text-center"><b>PO NO</b></th>
           <th class="text-center"><b>BILL NO</b></th>
           <th class="text-center"><b>BILL DATE</b></th>
@@ -369,7 +370,8 @@
           <td class="text-center">{{data.FULL_QTY}} &nbsp; pieces </td>
         </tr>
       </tbody> 
-    </table>                                                           
+    </table>  
+  </div>                                                         
 </div>
 
  
@@ -380,3 +382,4 @@ QTY
 คลิกดูรายละเอียดเพิ่มเติม เรียงจากจำนวนสินค้า และ ITEM_ID 
 ส่องส่วน จัดสินค้าเสร็จ จำนวน
         จัดไม่เสร็จ   จำนวน -->
+

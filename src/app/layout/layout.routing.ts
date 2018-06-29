@@ -24,7 +24,9 @@ const routes: Routes = [
             { path: 'goods-import-keyin', loadChildren: './goods-import-keyin/goods-import-keyin.module#GoodsImportKeyinModule' },
             { path: 'receive-barcode', loadChildren: './receive-barcode/receive-barcode.module#ReceiveBarcodeModule' },
             { path: 'chkstock-inlocation', loadChildren: './chkstock-inlocation/chkstock-inlocation.module#ChkstockInlocationModule' },
-         ]
+            { path: 'report-job-online', loadChildren: './report-job-online/report-job-online.module#ReportJobOnlineModule' },
+
+        ]
     }
 ];
 @NgModule({

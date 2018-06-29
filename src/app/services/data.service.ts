@@ -297,6 +297,14 @@ KEYIN_Goods_import(input){
 }
 
 
+///////////////////////////////////////////////////////////////////////////////
+/////////////////////////////  report-JobOnline  ///////////////////////////////
+//--------------- TSDC_JOB_CONTROL_ONLINE --------Check PICK_TIME 
+serv_JobOnline(){
+  return this.http.post('http://localhost:1234/api/JobOnline', '')
+  .map(res => res.json());
+}
+
 
 
   

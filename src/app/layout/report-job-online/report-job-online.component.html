@@ -1,0 +1,29 @@
+<div class="container" style="word-spacing: 1pt; line-height: 22px;">   
+  <div class="card-header">
+      <div class="row justify-content-between align-items-center">
+        <div class="col-auto mr-auto" style="font-size:18px; color: rgb(16, 102, 42); padding: 5px;">
+          <b> &nbsp; ตารางข้อมูลงาน Online  </b>
+        </div>
+      </div>
+    </div>
+  <div class="scroll"> 
+    <table class="table table-bordered table-hover" >
+      <thead>
+        <tr style=" position:relative; top: expression">
+          <th class="text-center"><b>PO NO</b></th>
+          <th class="text-center"><b>CUSTOMER NAME</b></th>
+          <th class="text-center"><b>QUANTITY</b></th>
+          <th class="text-center"><b>STATUS</b></th>
+        </tr> 
+      </thead>
+      <tbody> 
+        <tr *ngFor = 'let data of dataOnline; trackBy:index; let i = index;'> 
+          <td class="text-left">{{data.PO_NO}}</td>
+          <td class="text-left">{{data.CUST_NAME}}</td>
+          <td class="text-center">{{data.FULL_QTY}} &nbsp; pieces </td>
+          <td class="text-left">{{data.PICK_TIME}}</td>
+        </tr>
+      </tbody> 
+    </table>  
+  </div>                                                         
+</div>
