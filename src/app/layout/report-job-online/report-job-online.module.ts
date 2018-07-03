@@ -17,6 +17,7 @@ import { NgxBarcodeModule } from 'ngx-barcode';
     ReportJobOnlineRoutingModule,
     NgxBarcodeModule,
     DataTablesModule,
+
   ],
   declarations: [ReportJobOnlineComponent]
 })

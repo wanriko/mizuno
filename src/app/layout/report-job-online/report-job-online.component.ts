@@ -43,10 +43,10 @@ export class ReportJobOnlineComponent implements OnInit {
 
   //        this.dataOnline = response.data;
 
-  //       if( response.data[0].PICK_TIME = "default"){  
+  //       if( response.data.PICK_TIME == 'default'){  
   //         this.status = 'ยังไม่ส่ง'
   //       }
-  //       if(response.data[0].PICK_TIME = "End")
+  //       if(response.data.PICK_TIME == 'End')
   //       {
   //           this.status = 'ส่งเสร็จแล้ว'
   //       }
