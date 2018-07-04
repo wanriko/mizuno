@@ -25,6 +25,7 @@ const routes: Routes = [
             { path: 'receive-barcode', loadChildren: './receive-barcode/receive-barcode.module#ReceiveBarcodeModule' },
             { path: 'chkstock-inlocation', loadChildren: './chkstock-inlocation/chkstock-inlocation.module#ChkstockInlocationModule' },
             { path: 'report-job-online', loadChildren: './report-job-online/report-job-online.module#ReportJobOnlineModule' },
+            { path: 'checkjob-sorter-cashsale', loadChildren: './checkjob-sorter-cashsale/checkjob-sorter-cashsale.module#CheckjobSorterCashsaleModule' },
 
         ]
     }
